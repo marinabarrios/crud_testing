@@ -44,6 +44,7 @@ export interface Order {
   status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
   total_amount: number | string // Django DecimalField se serializa como string
   shipping_address: string
+  payment_method: 'credit_card' | 'debit_card' | 'paypal' | 'bank_transfer' | 'cash_on_delivery'
   items: OrderItem[]
   created_at: string
   updated_at: string

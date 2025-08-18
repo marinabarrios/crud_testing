@@ -85,10 +85,25 @@ class CartViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'])
     def checkout(self, request):
         shipping_address = request.data.get('shipping_address')
+        payment_method = request.data.get('payment_method')
         
         if not shipping_address:
             return Response(
                 {'error': 'Shipping address is required'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        if not payment_method:
+            return Response(
+                {'error': 'Payment method is required'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Validate payment method
+        valid_payment_methods = [choice[0] for choice in Order.PAYMENT_METHOD_CHOICES]
+        if payment_method not in valid_payment_methods:
+            return Response(
+                {'error': 'Invalid payment method'}, 
                 status=status.HTTP_400_BAD_REQUEST
             )
         
@@ -100,11 +115,13 @@ class CartViewSet(viewsets.ModelViewSet):
                     status=status.HTTP_400_BAD_REQUEST
                 )
             
-            # Create order
+            # Create order with automatic processing for demo
             order = Order.objects.create(
                 user=request.user,
                 shipping_address=shipping_address,
-                total_amount=cart.total_price
+                payment_method=payment_method,
+                total_amount=cart.total_price,
+                status='processing'  # Automatically set to processing for demo
             )
             
             # Create order items
@@ -124,8 +141,13 @@ class CartViewSet(viewsets.ModelViewSet):
             # Clear cart
             cart.items.all().delete()
             
+            # Return success message with order details
             serializer = OrderSerializer(order)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response({
+                'success': True,
+                'message': 'Pago procesado exitosamente. Su orden ha sido confirmada.',
+                'order': serializer.data
+            }, status=status.HTTP_201_CREATED)
             
         except Cart.DoesNotExist:
             return Response(

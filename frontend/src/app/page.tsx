@@ -1,13 +1,16 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import ProductGrid from '@/components/ProductGrid'
 import Cart from '@/components/Cart'
+import AuthDebug from '@/components/AuthDebug'
 import { Product } from '@/types/product'
 import { useAppStore } from '@/lib/store'
 
 export default function Home() {
+  const router = useRouter()
   const {
     cartItems,
     cartItemCount,
@@ -17,10 +20,16 @@ export default function Home() {
     updateCartQuantity,
     clearCart,
     syncCartWithBackend,
-    addToCartBackend
+    addToCartBackend,
+    checkAuthStatus
   } = useAppStore()
 
   const [isCartOpen, setIsCartOpen] = useState(false)
+
+  // Verificar el estado de autenticación al cargar la página
+  useEffect(() => {
+    checkAuthStatus()
+  }, [checkAuthStatus])
 
   // Sincronizar carrito con backend al cargar la página si está autenticado
   useEffect(() => {
@@ -50,14 +59,13 @@ export default function Home() {
       return
     }
     
-    // TODO: Implementar checkout real con backend
-    alert('Funcionalidad de checkout en desarrollo')
-    clearCart()
-    setIsCartOpen(false)
+    // Navegar a la página de checkout
+    router.push('/checkout')
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* <AuthDebug /> */}
       <Header 
         cartItemCount={cartItemCount}
         onCartClick={() => setIsCartOpen(true)}
