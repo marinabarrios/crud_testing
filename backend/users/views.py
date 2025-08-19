@@ -98,8 +98,80 @@ class UserProfileViewSet(viewsets.ModelViewSet):
             return UserProfile.objects.all()
         return UserProfile.objects.filter(user=self.request.user)
     
+    def destroy(self, request, *args, **kwargs):
+        """
+        Override destroy method to only allow users to delete their own profile
+        or admins to delete any profile
+        """
+        profile = self.get_object()
+        
+        # Check permissions
+        if request.user != profile.user and not request.user.is_staff:
+            return Response(
+                {'error': 'You can only delete your own profile'}, 
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
+        self.perform_destroy(profile)
+        return Response(
+            {'message': 'Profile deleted successfully'}, 
+            status=status.HTTP_200_OK
+        )
+    
     @action(detail=False, methods=['get'])
     def my_profile(self, request):
         profile = get_object_or_404(UserProfile, user=request.user)
         serializer = self.get_serializer(profile)
         return Response(serializer.data)
+    
+    def destroy(self, request, *args, **kwargs):
+        """
+        Override destroy method to allow users to delete their own account
+        and admins to delete any account
+        """
+        user = self.get_object()
+        
+        # Only allow users to delete their own account or admins to delete any account
+        if request.user == user or request.user.is_staff:
+            username = user.username  # Store username before deletion
+            user.delete()  # Direct deletion instead of perform_destroy
+            return Response(
+                {'message': f'usuario {username} borrado'}, 
+                status=status.HTTP_200_OK
+            )
+        else:
+            return Response(
+                {'error': 'You can only delete your own account'}, 
+                status=status.HTTP_403_FORBIDDEN
+            )
+    
+    @action(detail=True, methods=['delete'])
+    def delete_account(self, request, pk=None):
+        """
+        Custom action to delete user account with additional confirmations
+        """
+        user = self.get_object()
+        
+        # Check permissions
+        if request.user != user and not request.user.is_staff:
+            return Response(
+                {'error': 'You can only delete your own account'}, 
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
+        # Optional: Add confirmation parameter
+        confirm = request.data.get('confirm', False)
+        if not confirm:
+            return Response(
+                {'error': 'Please confirm account deletion by setting confirm=true'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Store username for response
+        username = user.username
+        user.delete()
+        
+        return Response(
+            {'message': f'User account {username} has been permanently deleted'}, 
+            status=status.HTTP_200_OK
+        )

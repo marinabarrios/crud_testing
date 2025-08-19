@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Header from '@/components/Header'
 import { useAppStore } from '@/lib/store'
 import { orderService } from '@/lib/api'
-import { Order } from '@/types'
+import { Order } from '@/types/product'
 import { formatSimplePrice, formatDate } from '@/lib/utils'
 
 export default function OrdersPage() {
   const router = useRouter()
-  const { isAuthenticated, user } = useAppStore()
+  const { isAuthenticated, user, cartItemCount } = useAppStore()
   
   const [orders, setOrders] = useState<Order[]>([])
   const [loading, setLoading] = useState(true)
@@ -62,47 +63,80 @@ export default function OrdersPage() {
     }
   }
 
+  const getPaymentMethodText = (method: string) => {
+    switch (method) {
+      case 'credit_card': return 'Tarjeta de Crédito'
+      case 'debit_card': return 'Tarjeta de Débito'
+      case 'paypal': return 'PayPal'
+      case 'bank_transfer': return 'Transferencia Bancaria'
+      case 'cash_on_delivery': return 'Pago Contra Entrega'
+      default: return method
+    }
+  }
+
   if (!isAuthenticated) {
     return null // El useEffect redirigirá
   }
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
-        <div className="container mx-auto px-4">
+      <div className="min-h-screen bg-gray-50">
+        <Header cartItemCount={cartItemCount} onCartClick={() => {}} />
+        <main className="container mx-auto px-4 py-8">
           <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
           </div>
-        </div>
+        </main>
       </div>
     )
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
-        <div className="container mx-auto px-4">
+      <div className="min-h-screen bg-gray-50">
+        <Header cartItemCount={cartItemCount} onCartClick={() => {}} />
+        <main className="container mx-auto px-4 py-8">
           <div className="text-center py-8">
             <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
               <div className="text-red-600 text-lg mb-2">⚠️ Error</div>
               <p className="text-red-700 mb-4">{error}</p>
-              <button 
-                onClick={fetchOrders}
-                className="btn-primary"
-              >
-                Reintentar
-              </button>
+              <div className="flex gap-3 justify-center">
+                <button 
+                  onClick={() => router.push('/')}
+                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50"
+                >
+                  Volver al Inicio
+                </button>
+                <button 
+                  onClick={fetchOrders}
+                  className="btn-primary"
+                >
+                  Reintentar
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </main>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-gray-50">
+      <Header cartItemCount={cartItemCount} onCartClick={() => {}} />
+      <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
+          {/* Botón de regresar */}
+          <button
+            onClick={() => router.push('/')}
+            className="flex items-center text-gray-600 hover:text-gray-900 mb-4 transition-colors"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Volver al Inicio
+          </button>
+          
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Mis Órdenes
           </h1>
@@ -153,13 +187,25 @@ export default function OrdersPage() {
                     </div>
                   </div>
 
-                  <div className="border-t pt-4">
-                    <h4 className="text-sm font-medium text-gray-900 mb-2">
-                      Dirección de Envío:
-                    </h4>
-                    <p className="text-sm text-gray-600">
-                      {order.shipping_address}
-                    </p>
+                  <div className="border-t pt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-900 mb-2">
+                        Dirección de Envío:
+                      </h4>
+                      <p className="text-sm text-gray-600">
+                        {order.shipping_address}
+                      </p>
+                    </div>
+                    {order.payment_method && (
+                      <div>
+                        <h4 className="text-sm font-medium text-gray-900 mb-2">
+                          Método de Pago:
+                        </h4>
+                        <p className="text-sm text-gray-600">
+                          {getPaymentMethodText(order.payment_method)}
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   {order.items && order.items.length > 0 && (
@@ -191,7 +237,7 @@ export default function OrdersPage() {
             ))}
           </div>
         )}
-      </div>
+      </main>
     </div>
   )
 }
