@@ -1,0 +1,4506 @@
+{
+	"info": {
+		"_postman_id": "439df246-8307-4976-8777-48dc9cd7edac",
+		"name": "Clase_7",
+		"description": "HAR To Postman Generated Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8034879"
+	},
+	"item": [
+		{
+			"name": "sesion_compra",
+			"item": [
+				{
+					"name": "localhost:8000/api/users/login/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();\r",
+									"const accessToken = responseJson.access;\r",
+									"const userId = responseJson.user.id;\r",
+									"\r",
+									"pm.collectionVariables.set(\"token\", accessToken);\r",
+									"pm.collectionVariables.set(\"userId\", userId);\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "46",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"username\": \"ivanivan7\",\n \"password\": \"12341234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/users/login/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Length",
+										"value": "46"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"username\": \"ivanivan7\",\n \"password\": \"12341234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL2}}/api/users/login/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "674"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:36 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTczMTkxNiwiaWF0IjoxNzU1NjQ1NTE2LCJqdGkiOiI1ZDUzZWEzODIxMDM0OGI1OGVlZmU5ZWMzMzljZDFlMSIsInVzZXJfaWQiOjUzfQ.MJsctcU-UhAZ3ooi5rEY0HP3H8ufTBxSTnHtY2m2wbw\",\n \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NjQ5MTE2LCJpYXQiOjE3NTU2NDU1MTYsImp0aSI6IjExOWU1YjQxNmExZjRhMTU4MzA3ZWEzMzliZmY0Y2Y1IiwidXNlcl9pZCI6NTN9.9GGCFjk8siNDpCSqaoeMZVG_CSDHX7CtcSTjtIZAciM\",\n \"user\": {\n  \"id\": 53,\n  \"username\": \"ivanivan7\",\n  \"email\": \"sambrana@gmail.com\",\n  \"first_name\": \"ivan\",\n  \"last_name\": \"sambrana\",\n  \"profile\": {\n   \"phone\": \"\",\n   \"address\": \"\",\n   \"city\": \"\",\n   \"postal_code\": \"\",\n   \"country\": \"\"\n  }\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/products/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/products/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/products/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"products",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4115"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:36 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"count\": 26,\n \"next\": \"http://localhost:8000/api/products/?page=2\",\n \"previous\": null,\n \"results\": [\n  {\n   \"id\": 27,\n   \"name\": \"Teléfono Inteligente X1\",\n   \"description\": \"Último modelo de smartphone con características avanzadas\",\n   \"price\": \"699.99\",\n   \"stock\": 42,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": \"http://localhost:8000/products/tel%C3%A9fono_inteligente_x1.jpg\",\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.581519Z\",\n   \"updated_at\": \"2025-08-19T00:30:56.335740Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 28,\n   \"name\": \"Laptop Pro\",\n   \"description\": \"Portátil de alto rendimiento para profesionales\",\n   \"price\": \"1299.99\",\n   \"stock\": 18,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n   \"updated_at\": \"2025-08-19T00:19:23.719635Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 29,\n   \"name\": \"Audífonos Inalámbricos\",\n   \"description\": \"Audífonos premium con cancelación de ruido\",\n   \"price\": \"199.99\",\n   \"stock\": 100,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.581901Z\",\n   \"updated_at\": \"2025-08-18T22:30:27.581905Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 30,\n   \"name\": \"Reloj Inteligente\",\n   \"description\": \"Smartwatch con seguimiento de actividad física\",\n   \"price\": \"299.99\",\n   \"stock\": 75,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": \"http://localhost:8000/products/reloj_inteligente.jpg\",\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582014Z\",\n   \"updated_at\": \"2025-08-19T00:31:09.601656Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 31,\n   \"name\": \"Monitor 4K\",\n   \"description\": \"Monitor de 27 pulgadas con resolución 4K\",\n   \"price\": \"399.99\",\n   \"stock\": 30,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": \"http://localhost:8000/products/monitor_4k.jpg\",\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582125Z\",\n   \"updated_at\": \"2025-08-19T00:31:14.636477Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 32,\n   \"name\": \"Camiseta de Algodón\",\n   \"description\": \"Camiseta cómoda 100% algodón\",\n   \"price\": \"19.99\",\n   \"stock\": 194,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582224Z\",\n   \"updated_at\": \"2025-08-19T00:19:23.738734Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 33,\n   \"name\": \"Jeans de Mezclilla\",\n   \"description\": \"Jeans clásicos de mezclilla azul\",\n   \"price\": \"49.99\",\n   \"stock\": 150,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582320Z\",\n   \"updated_at\": \"2025-08-18T22:30:27.582324Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 34,\n   \"name\": \"Chaqueta de Invierno\",\n   \"description\": \"Chaqueta abrigadora con capucha para invierno\",\n   \"price\": \"89.99\",\n   \"stock\": 79,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582414Z\",\n   \"updated_at\": \"2025-08-18T23:31:06.036242Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 35,\n   \"name\": \"Zapatos para Correr\",\n   \"description\": \"Zapatos deportivos ligeros para running\",\n   \"price\": \"79.99\",\n   \"stock\": 120,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582506Z\",\n   \"updated_at\": \"2025-08-18T22:30:27.582510Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 36,\n   \"name\": \"Vestido de Verano\",\n   \"description\": \"Elegante vestido para la temporada de verano\",\n   \"price\": \"59.99\",\n   \"stock\": 90,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582614Z\",\n   \"updated_at\": \"2025-08-18T22:30:27.582617Z\",\n   \"is_available\": true\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/my_cart/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"my_cart",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/my_cart/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"my_cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:36 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 14,\n \"user\": 53,\n \"items\": [],\n \"total_items\": 0,\n \"total_price\": 0,\n \"created_at\": \"2025-08-19T23:18:36.844396Z\",\n \"updated_at\": \"2025-08-19T23:18:36.844420Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/products/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/products/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/products/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"products",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4115"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:36 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"count\": 26,\n \"next\": \"http://localhost:8000/api/products/?page=2\",\n \"previous\": null,\n \"results\": [\n  {\n   \"id\": 27,\n   \"name\": \"Teléfono Inteligente X1\",\n   \"description\": \"Último modelo de smartphone con características avanzadas\",\n   \"price\": \"699.99\",\n   \"stock\": 42,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": \"http://localhost:8000/products/tel%C3%A9fono_inteligente_x1.jpg\",\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.581519Z\",\n   \"updated_at\": \"2025-08-19T00:30:56.335740Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 28,\n   \"name\": \"Laptop Pro\",\n   \"description\": \"Portátil de alto rendimiento para profesionales\",\n   \"price\": \"1299.99\",\n   \"stock\": 18,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n   \"updated_at\": \"2025-08-19T00:19:23.719635Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 29,\n   \"name\": \"Audífonos Inalámbricos\",\n   \"description\": \"Audífonos premium con cancelación de ruido\",\n   \"price\": \"199.99\",\n   \"stock\": 100,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.581901Z\",\n   \"updated_at\": \"2025-08-18T22:30:27.581905Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 30,\n   \"name\": \"Reloj Inteligente\",\n   \"description\": \"Smartwatch con seguimiento de actividad física\",\n   \"price\": \"299.99\",\n   \"stock\": 75,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": \"http://localhost:8000/products/reloj_inteligente.jpg\",\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582014Z\",\n   \"updated_at\": \"2025-08-19T00:31:09.601656Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 31,\n   \"name\": \"Monitor 4K\",\n   \"description\": \"Monitor de 27 pulgadas con resolución 4K\",\n   \"price\": \"399.99\",\n   \"stock\": 30,\n   \"category\": {\n    \"id\": 7,\n    \"name\": \"Electrónicos\",\n    \"description\": \"Dispositivos electrónicos y gadgets\",\n    \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n   },\n   \"image\": \"http://localhost:8000/products/monitor_4k.jpg\",\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582125Z\",\n   \"updated_at\": \"2025-08-19T00:31:14.636477Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 32,\n   \"name\": \"Camiseta de Algodón\",\n   \"description\": \"Camiseta cómoda 100% algodón\",\n   \"price\": \"19.99\",\n   \"stock\": 194,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582224Z\",\n   \"updated_at\": \"2025-08-19T00:19:23.738734Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 33,\n   \"name\": \"Jeans de Mezclilla\",\n   \"description\": \"Jeans clásicos de mezclilla azul\",\n   \"price\": \"49.99\",\n   \"stock\": 150,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582320Z\",\n   \"updated_at\": \"2025-08-18T22:30:27.582324Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 34,\n   \"name\": \"Chaqueta de Invierno\",\n   \"description\": \"Chaqueta abrigadora con capucha para invierno\",\n   \"price\": \"89.99\",\n   \"stock\": 79,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582414Z\",\n   \"updated_at\": \"2025-08-18T23:31:06.036242Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 35,\n   \"name\": \"Zapatos para Correr\",\n   \"description\": \"Zapatos deportivos ligeros para running\",\n   \"price\": \"79.99\",\n   \"stock\": 120,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582506Z\",\n   \"updated_at\": \"2025-08-18T22:30:27.582510Z\",\n   \"is_available\": true\n  },\n  {\n   \"id\": 36,\n   \"name\": \"Vestido de Verano\",\n   \"description\": \"Elegante vestido para la temporada de verano\",\n   \"price\": \"59.99\",\n   \"stock\": 90,\n   \"category\": {\n    \"id\": 8,\n    \"name\": \"Ropa\",\n    \"description\": \"Moda y vestimenta\",\n    \"created_at\": \"2025-08-18T22:30:27.580955Z\"\n   },\n   \"image\": null,\n   \"is_active\": true,\n   \"created_at\": \"2025-08-18T22:30:27.582614Z\",\n   \"updated_at\": \"2025-08-18T22:30:27.582617Z\",\n   \"is_available\": true\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/my_cart/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"my_cart",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/my_cart/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"my_cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "148"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:36 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 14,\n \"user\": 53,\n \"items\": [],\n \"total_items\": 0,\n \"total_price\": 0,\n \"created_at\": \"2025-08-19T23:18:36.844396Z\",\n \"updated_at\": \"2025-08-19T23:18:36.844420Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/add_item/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"product_id\": 28,\n \"quantity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/add_item/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"add_item",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Length",
+										"value": "30"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"product_id\": 28,\n \"quantity\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/add_item/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"add_item",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "648"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:47 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 14,\n \"user\": 53,\n \"items\": [\n  {\n   \"id\": 44,\n   \"product\": {\n    \"id\": 28,\n    \"name\": \"Laptop Pro\",\n    \"description\": \"Portátil de alto rendimiento para profesionales\",\n    \"price\": \"1299.99\",\n    \"stock\": 18,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n    \"updated_at\": \"2025-08-19T00:19:23.719635Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 1,\n   \"added_at\": \"2025-08-19T23:18:47.454231Z\",\n   \"total_price\": 1299.99\n  }\n ],\n \"total_items\": 1,\n \"total_price\": 1299.99,\n \"created_at\": \"2025-08-19T23:18:36.844396Z\",\n \"updated_at\": \"2025-08-19T23:18:36.844420Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/my_cart/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"my_cart",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/my_cart/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"my_cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "648"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:47 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 14,\n \"user\": 53,\n \"items\": [\n  {\n   \"id\": 44,\n   \"product\": {\n    \"id\": 28,\n    \"name\": \"Laptop Pro\",\n    \"description\": \"Portátil de alto rendimiento para profesionales\",\n    \"price\": \"1299.99\",\n    \"stock\": 18,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n    \"updated_at\": \"2025-08-19T00:19:23.719635Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 1,\n   \"added_at\": \"2025-08-19T23:18:47.454231Z\",\n   \"total_price\": 1299.99\n  }\n ],\n \"total_items\": 1,\n \"total_price\": 1299.99,\n \"created_at\": \"2025-08-19T23:18:36.844396Z\",\n \"updated_at\": \"2025-08-19T23:18:36.844420Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/add_item/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"product_id\": 28,\n \"quantity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/add_item/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"add_item",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Length",
+										"value": "30"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"product_id\": 28,\n \"quantity\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/add_item/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"add_item",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "648"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:57 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 14,\n \"user\": 53,\n \"items\": [\n  {\n   \"id\": 44,\n   \"product\": {\n    \"id\": 28,\n    \"name\": \"Laptop Pro\",\n    \"description\": \"Portátil de alto rendimiento para profesionales\",\n    \"price\": \"1299.99\",\n    \"stock\": 18,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n    \"updated_at\": \"2025-08-19T00:19:23.719635Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 2,\n   \"added_at\": \"2025-08-19T23:18:47.454231Z\",\n   \"total_price\": 2599.98\n  }\n ],\n \"total_items\": 2,\n \"total_price\": 2599.98,\n \"created_at\": \"2025-08-19T23:18:36.844396Z\",\n \"updated_at\": \"2025-08-19T23:18:36.844420Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/my_cart/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"my_cart",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/my_cart/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"my_cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "648"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:57 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 14,\n \"user\": 53,\n \"items\": [\n  {\n   \"id\": 44,\n   \"product\": {\n    \"id\": 28,\n    \"name\": \"Laptop Pro\",\n    \"description\": \"Portátil de alto rendimiento para profesionales\",\n    \"price\": \"1299.99\",\n    \"stock\": 18,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n    \"updated_at\": \"2025-08-19T00:19:23.719635Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 2,\n   \"added_at\": \"2025-08-19T23:18:47.454231Z\",\n   \"total_price\": 2599.98\n  }\n ],\n \"total_items\": 2,\n \"total_price\": 2599.98,\n \"created_at\": \"2025-08-19T23:18:36.844396Z\",\n \"updated_at\": \"2025-08-19T23:18:36.844420Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/add_item/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "30",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"product_id\": 29,\n \"quantity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/add_item/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"add_item",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Length",
+										"value": "30"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"product_id\": 29,\n \"quantity\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/add_item/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"add_item",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1152"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:58 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 14,\n \"user\": 53,\n \"items\": [\n  {\n   \"id\": 44,\n   \"product\": {\n    \"id\": 28,\n    \"name\": \"Laptop Pro\",\n    \"description\": \"Portátil de alto rendimiento para profesionales\",\n    \"price\": \"1299.99\",\n    \"stock\": 18,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n    \"updated_at\": \"2025-08-19T00:19:23.719635Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 2,\n   \"added_at\": \"2025-08-19T23:18:47.454231Z\",\n   \"total_price\": 2599.98\n  },\n  {\n   \"id\": 45,\n   \"product\": {\n    \"id\": 29,\n    \"name\": \"Audífonos Inalámbricos\",\n    \"description\": \"Audífonos premium con cancelación de ruido\",\n    \"price\": \"199.99\",\n    \"stock\": 100,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581901Z\",\n    \"updated_at\": \"2025-08-18T22:30:27.581905Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 1,\n   \"added_at\": \"2025-08-19T23:18:58.930195Z\",\n   \"total_price\": 199.99\n  }\n ],\n \"total_items\": 3,\n \"total_price\": 2799.97,\n \"created_at\": \"2025-08-19T23:18:36.844396Z\",\n \"updated_at\": \"2025-08-19T23:18:36.844420Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/my_cart/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"my_cart",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/my_cart/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"my_cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1152"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:18:58 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 14,\n \"user\": 53,\n \"items\": [\n  {\n   \"id\": 44,\n   \"product\": {\n    \"id\": 28,\n    \"name\": \"Laptop Pro\",\n    \"description\": \"Portátil de alto rendimiento para profesionales\",\n    \"price\": \"1299.99\",\n    \"stock\": 18,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n    \"updated_at\": \"2025-08-19T00:19:23.719635Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 2,\n   \"added_at\": \"2025-08-19T23:18:47.454231Z\",\n   \"total_price\": 2599.98\n  },\n  {\n   \"id\": 45,\n   \"product\": {\n    \"id\": 29,\n    \"name\": \"Audífonos Inalámbricos\",\n    \"description\": \"Audífonos premium con cancelación de ruido\",\n    \"price\": \"199.99\",\n    \"stock\": 100,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581901Z\",\n    \"updated_at\": \"2025-08-18T22:30:27.581905Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 1,\n   \"added_at\": \"2025-08-19T23:18:58.930195Z\",\n   \"total_price\": 199.99\n  }\n ],\n \"total_items\": 3,\n \"total_price\": 2799.97,\n \"created_at\": \"2025-08-19T23:18:36.844396Z\",\n \"updated_at\": \"2025-08-19T23:18:36.844420Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/checkout?_rsc=acgkz",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:3000"
+							},
+							{
+								"key": "Next-Router-Prefetch",
+								"value": "1"
+							},
+							{
+								"key": "Next-Router-State-Tree",
+								"value": "%5B%22%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%5D%7D%2Cnull%2Cnull%2Ctrue%5D"
+							},
+							{
+								"key": "Next-Url",
+								"value": "/"
+							},
+							{
+								"key": "RSC",
+								"value": "1"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/checkout?_rsc=acgkz",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"checkout"
+							],
+							"query": [
+								{
+									"key": "_rsc",
+									"value": "acgkz"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:3000"
+									},
+									{
+										"key": "Next-Router-Prefetch",
+										"value": "1"
+									},
+									{
+										"key": "Next-Router-State-Tree",
+										"value": "%5B%22%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%5D%7D%2Cnull%2Cnull%2Ctrue%5D"
+									},
+									{
+										"key": "Next-Url",
+										"value": "/"
+									},
+									{
+										"key": "RSC",
+										"value": "1"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/checkout?_rsc=acgkz",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"checkout"
+									],
+									"query": [
+										{
+											"key": "_rsc",
+											"value": "acgkz"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/x-component"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:19:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url, Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Next.js"
+								}
+							],
+							"cookie": [],
+							"body": "text/x-component content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/_next/static/webpack/f19fa3731abb73a5.webpack.hot-update.json",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/_next/static/webpack/f19fa3731abb73a5.webpack.hot-update.json",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"_next",
+								"static",
+								"webpack",
+								"f19fa3731abb73a5.webpack.hot-update.json"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/_next/static/webpack/f19fa3731abb73a5.webpack.hot-update.json",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"_next",
+										"static",
+										"webpack",
+										"f19fa3731abb73a5.webpack.hot-update.json"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:19:06 GMT"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-198c4a1101e\""
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Tue, 19 Aug 2025 23:19:06 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"c\": [\n  \"app/layout\",\n  \"webpack\"\n ],\n \"r\": [],\n \"m\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/checkout?_rsc=v7k5d",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:3000"
+							},
+							{
+								"key": "Next-Router-State-Tree",
+								"value": "%5B%22%22%2C%7B%22children%22%3A%5B%22checkout%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%5D%7D%5D%7D%2Cnull%2C%22refetch%22%5D"
+							},
+							{
+								"key": "Next-Url",
+								"value": "/checkout"
+							},
+							{
+								"key": "RSC",
+								"value": "1"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/checkout?_rsc=v7k5d",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"checkout"
+							],
+							"query": [
+								{
+									"key": "_rsc",
+									"value": "v7k5d"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:3000"
+									},
+									{
+										"key": "Next-Router-State-Tree",
+										"value": "%5B%22%22%2C%7B%22children%22%3A%5B%22checkout%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%5D%7D%5D%7D%2Cnull%2C%22refetch%22%5D"
+									},
+									{
+										"key": "Next-Url",
+										"value": "/checkout"
+									},
+									{
+										"key": "RSC",
+										"value": "1"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/checkout?_rsc=v7k5d",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"checkout"
+									],
+									"query": [
+										{
+											"key": "_rsc",
+											"value": "v7k5d"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/x-component"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:19:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url, Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Next.js"
+								}
+							],
+							"cookie": [],
+							"body": "text/x-component content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/my_cart/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"my_cart",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/my_cart/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"my_cart",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1152"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:19:06 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": 14,\n \"user\": 53,\n \"items\": [\n  {\n   \"id\": 44,\n   \"product\": {\n    \"id\": 28,\n    \"name\": \"Laptop Pro\",\n    \"description\": \"Portátil de alto rendimiento para profesionales\",\n    \"price\": \"1299.99\",\n    \"stock\": 18,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n    \"updated_at\": \"2025-08-19T00:19:23.719635Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 2,\n   \"added_at\": \"2025-08-19T23:18:47.454231Z\",\n   \"total_price\": 2599.98\n  },\n  {\n   \"id\": 45,\n   \"product\": {\n    \"id\": 29,\n    \"name\": \"Audífonos Inalámbricos\",\n    \"description\": \"Audífonos premium con cancelación de ruido\",\n    \"price\": \"199.99\",\n    \"stock\": 100,\n    \"category\": {\n     \"id\": 7,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-18T22:30:27.581901Z\",\n    \"updated_at\": \"2025-08-18T22:30:27.581905Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 1,\n   \"added_at\": \"2025-08-19T23:18:58.930195Z\",\n   \"total_price\": 199.99\n  }\n ],\n \"total_items\": 3,\n \"total_price\": 2799.97,\n \"created_at\": \"2025-08-19T23:18:36.844396Z\",\n \"updated_at\": \"2025-08-19T23:18:36.844420Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/cart/checkout/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Codigo de respues 201\",function(){\r",
+									"      pm.expect([201]).to.include(pm.response.code);\r",
+									"\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "56",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"shipping_address\": \"mi casa\",\n \"payment_method\": \"paypal\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/cart/checkout/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"checkout",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "created / 201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Length",
+										"value": "56"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"shipping_address\": \"mi casa\",\n \"payment_method\": \"paypal\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL2}}/api/cart/checkout/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"cart",
+										"checkout",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1220"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:19:22 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"success\": true,\n \"message\": \"Pago procesado exitosamente. Su orden ha sido confirmada.\",\n \"order\": {\n  \"id\": 27,\n  \"user\": 53,\n  \"status\": \"processing\",\n  \"total_amount\": \"2799.97\",\n  \"shipping_address\": \"mi casa\",\n  \"payment_method\": \"paypal\",\n  \"items\": [\n   {\n    \"id\": 73,\n    \"product\": {\n     \"id\": 28,\n     \"name\": \"Laptop Pro\",\n     \"description\": \"Portátil de alto rendimiento para profesionales\",\n     \"price\": \"1299.99\",\n     \"stock\": 16,\n     \"category\": {\n      \"id\": 7,\n      \"name\": \"Electrónicos\",\n      \"description\": \"Dispositivos electrónicos y gadgets\",\n      \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n     },\n     \"image\": null,\n     \"is_active\": true,\n     \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n     \"updated_at\": \"2025-08-19T23:19:22.001626Z\",\n     \"is_available\": true\n    },\n    \"quantity\": 2,\n    \"price\": \"1299.99\"\n   },\n   {\n    \"id\": 74,\n    \"product\": {\n     \"id\": 29,\n     \"name\": \"Audífonos Inalámbricos\",\n     \"description\": \"Audífonos premium con cancelación de ruido\",\n     \"price\": \"199.99\",\n     \"stock\": 99,\n     \"category\": {\n      \"id\": 7,\n      \"name\": \"Electrónicos\",\n      \"description\": \"Dispositivos electrónicos y gadgets\",\n      \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n     },\n     \"image\": null,\n     \"is_active\": true,\n     \"created_at\": \"2025-08-18T22:30:27.581901Z\",\n     \"updated_at\": \"2025-08-19T23:19:22.020317Z\",\n     \"is_available\": true\n    },\n    \"quantity\": 1,\n    \"price\": \"199.99\"\n   }\n  ],\n  \"created_at\": \"2025-08-19T23:19:21.984182Z\",\n  \"updated_at\": \"2025-08-19T23:19:21.984193Z\"\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/orders?_rsc=14way",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:3000"
+							},
+							{
+								"key": "Next-Router-Prefetch",
+								"value": "1"
+							},
+							{
+								"key": "Next-Router-State-Tree",
+								"value": "%5B%22%22%2C%7B%22children%22%3A%5B%22checkout%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%5D%7D%5D%7D%2Cnull%2Cnull%2Ctrue%5D"
+							},
+							{
+								"key": "Next-Url",
+								"value": "/checkout"
+							},
+							{
+								"key": "RSC",
+								"value": "1"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/checkout"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/orders?_rsc=14way",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "_rsc",
+									"value": "14way"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:3000"
+									},
+									{
+										"key": "Next-Router-Prefetch",
+										"value": "1"
+									},
+									{
+										"key": "Next-Router-State-Tree",
+										"value": "%5B%22%22%2C%7B%22children%22%3A%5B%22checkout%22%2C%7B%22children%22%3A%5B%22__PAGE__%22%2C%7B%7D%5D%7D%5D%7D%2Cnull%2Cnull%2Ctrue%5D"
+									},
+									{
+										"key": "Next-Url",
+										"value": "/checkout"
+									},
+									{
+										"key": "RSC",
+										"value": "1"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/checkout"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/orders?_rsc=14way",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"orders"
+									],
+									"query": [
+										{
+											"key": "_rsc",
+											"value": "14way"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/x-component"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:19:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Vary",
+									"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url, Accept-Encoding"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Next.js"
+								}
+							],
+							"cookie": [],
+							"body": "text/x-component content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/_next/static/webpack/86dd137351af21b0.webpack.hot-update.json",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/checkout"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/_next/static/webpack/86dd137351af21b0.webpack.hot-update.json",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"_next",
+								"static",
+								"webpack",
+								"86dd137351af21b0.webpack.hot-update.json"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/checkout"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-origin"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/_next/static/webpack/86dd137351af21b0.webpack.hot-update.json",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"_next",
+										"static",
+										"webpack",
+										"86dd137351af21b0.webpack.hot-update.json"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "394"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:19:28 GMT"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18a-198c4a16460\""
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Tue, 19 Aug 2025 23:19:28 GMT"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"c\": [\n  \"webpack\"\n ],\n \"r\": [\n  \"app/not-found\"\n ],\n \"m\": [\n  \"(app-pages-browser)/./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=C%3A%5CUsers%5Cuser%5CDocuments%5CTesting%5CCrud%5Cfrontend%5Cnode_modules%5Cnext%5Cdist%5Cclient%5Ccomponents%5Cnot-found-error.js&page=%2Fnot-found!\",\n  \"(app-pages-browser)/./node_modules/next/dist/client/components/not-found-error.js\"\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/orders/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/orders/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/orders/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"orders",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1177"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:19:28 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"count\": 1,\n \"next\": null,\n \"previous\": null,\n \"results\": [\n  {\n   \"id\": 27,\n   \"user\": 53,\n   \"status\": \"processing\",\n   \"total_amount\": \"2799.97\",\n   \"shipping_address\": \"mi casa\",\n   \"payment_method\": \"paypal\",\n   \"items\": [\n    {\n     \"id\": 73,\n     \"product\": {\n      \"id\": 28,\n      \"name\": \"Laptop Pro\",\n      \"description\": \"Portátil de alto rendimiento para profesionales\",\n      \"price\": \"1299.99\",\n      \"stock\": 16,\n      \"category\": {\n       \"id\": 7,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n      \"updated_at\": \"2025-08-19T23:19:22.001626Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"1299.99\"\n    },\n    {\n     \"id\": 74,\n     \"product\": {\n      \"id\": 29,\n      \"name\": \"Audífonos Inalámbricos\",\n      \"description\": \"Audífonos premium con cancelación de ruido\",\n      \"price\": \"199.99\",\n      \"stock\": 99,\n      \"category\": {\n       \"id\": 7,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-18T22:30:27.581901Z\",\n      \"updated_at\": \"2025-08-19T23:19:22.020317Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"199.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-19T23:19:21.984182Z\",\n   \"updated_at\": \"2025-08-19T23:19:21.984193Z\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/orders/",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL2}}/api/orders/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"url": {
+									"raw": "{{baseURL2}}/api/orders/",
+									"host": [
+										"{{baseURL2}}"
+									],
+									"path": [
+										"api",
+										"orders",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1177"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 23:19:28 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"count\": 1,\n \"next\": null,\n \"previous\": null,\n \"results\": [\n  {\n   \"id\": 27,\n   \"user\": 53,\n   \"status\": \"processing\",\n   \"total_amount\": \"2799.97\",\n   \"shipping_address\": \"mi casa\",\n   \"payment_method\": \"paypal\",\n   \"items\": [\n    {\n     \"id\": 73,\n     \"product\": {\n      \"id\": 28,\n      \"name\": \"Laptop Pro\",\n      \"description\": \"Portátil de alto rendimiento para profesionales\",\n      \"price\": \"1299.99\",\n      \"stock\": 16,\n      \"category\": {\n       \"id\": 7,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-18T22:30:27.581775Z\",\n      \"updated_at\": \"2025-08-19T23:19:22.001626Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"1299.99\"\n    },\n    {\n     \"id\": 74,\n     \"product\": {\n      \"id\": 29,\n      \"name\": \"Audífonos Inalámbricos\",\n      \"description\": \"Audífonos premium con cancelación de ruido\",\n      \"price\": \"199.99\",\n      \"stock\": 99,\n      \"category\": {\n       \"id\": 7,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-18T22:30:27.580260Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-18T22:30:27.581901Z\",\n      \"updated_at\": \"2025-08-19T23:19:22.020317Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"199.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-19T23:19:21.984182Z\",\n   \"updated_at\": \"2025-08-19T23:19:21.984193Z\"\n  }\n ]\n}"
+						}
+					]
+				}
+			],
+			"description": "localhost:3000/",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.test(\"Response time is below 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Codigo de respues 200\",function(){\r",
+							"      pm.expect([200, 201, 204]).to.include(pm.response.code);\r",
+							"\r",
+							"})\r",
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL1",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "baseURL2",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "token",
+			"value": "xx",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			}
+		},
+		{
+			"key": "userId",
+			"value": "xx",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			}
+		}
+	]
+}
