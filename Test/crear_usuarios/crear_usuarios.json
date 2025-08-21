@@ -1,0 +1,934 @@
+{
+	"info": {
+		"_postman_id": "3ed2fd79-8d28-41bf-8bd0-48685abc7a4a",
+		"name": "Crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8034879"
+	},
+	"item": [
+		{
+			"name": "registrar Usuario Copy",
+			"item": [
+				{
+					"name": "localhost:8000/api/users/register/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"///\r",
+									"\r",
+									"const responseJson = pm.response.json();\r",
+									"const accessToken = responseJson.access;\r",
+									"const userId = responseJson.user.id;\r",
+									"\r",
+									"pm.collectionVariables.set(\"access\", accessToken);\r",
+									"pm.collectionVariables.set(\"userId\", userId);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"///test\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(201);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has required fields\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData).to.have.all.keys('refresh', 'access', 'user');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"User object structure is valid\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData).to.have.all.keys('refresh', 'access', 'user');\r",
+									"    \r",
+									"    const user = responseData.user;\r",
+									"    pm.expect(user).to.be.an('object').that.has.all.keys('id', 'username', 'email', 'first_name', 'last_name', 'profile');\r",
+									"    \r",
+									"    const profile = user.profile;\r",
+									"    pm.expect(profile).to.be.an('object').that.has.all.keys('phone', 'address', 'city', 'postal_code', 'country');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Email is in a valid format\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.user).to.exist;\r",
+									"    pm.expect(responseData.user.email).to.exist.and.to.satisfy(function(email) {\r",
+									"        const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\r",
+									"        return emailRegex.test(email);\r",
+									"    }, \"Email format is invalid\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "147",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"username\": \"{{username}}\",\n \"email\": \"{{mail}}\",\n \"password\": \"{{pass}}\",\n \"password_confirm\": \"{{pass2}}\",\n \"first_name\": \"{{nombre}}\",\n \"last_name\": \"{{apellido}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/register/",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "created / 201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Length",
+										"value": "147"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"username\": \"ivanivan\",\n \"email\": \"sambrana@gmail.com\",\n \"password\": \"12341234\",\n \"password_confirm\": \"12341234\",\n \"first_name\": \"ivan\",\n \"last_name\": \"sambrana\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL1}}/api/users/register/",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "673"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 22:30:43 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTcyOTA0MywiaWF0IjoxNzU1NjQyNjQzLCJqdGkiOiI5YjRhMGUwMTIwMzQ0ZmM4YWQ4ZjBiZGMwYmU1NTEwMyIsInVzZXJfaWQiOjM2fQ.2n_H4sOpwDvzyA3teBbUuksGy3TK05lFyz91XAXRoeQ\",\n \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NjQ2MjQzLCJpYXQiOjE3NTU2NDI2NDMsImp0aSI6Ijk0ZDUzNTM0MzgzOTRlMjI4MTVjYWNhNDBhNDQ5Mzk3IiwidXNlcl9pZCI6MzZ9.MyNtsqYqxL2iRxz2GL5zoLfsb_iOY34zhlWZQuO6Vuk\",\n \"user\": {\n  \"id\": 36,\n  \"username\": \"ivanivan\",\n  \"email\": \"sambrana@gmail.com\",\n  \"first_name\": \"ivan\",\n  \"last_name\": \"sambrana\",\n  \"profile\": {\n   \"phone\": \"\",\n   \"address\": \"\",\n   \"city\": \"\",\n   \"postal_code\": \"\",\n   \"country\": \"\"\n  }\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "localhost:8000/api/users/register/ Ya existe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"///test\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response status code is 400\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(400);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body is valid JSON\", function () {\r",
+									"    const response = pm.response.json();\r",
+									"    pm.expect(response).to.be.an('object');\r",
+									"    pm.expect(response).to.have.property('username');\r",
+									"    pm.expect(response.username).to.be.an('array').that.is.not.empty;\r",
+									"    pm.expect(response.username[0]).to.be.a('string');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "147",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"username\": \"ivanivan3\",\n \"email\": \"sambrana@gmail.com\",\n \"password\": \"12341234\",\n \"password_confirm\": \"12341234\",\n \"first_name\": \"ivan\",\n \"last_name\": \"sambrana\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/register/",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ya existe / 400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br, zstd"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "es-ES,es;q=0.9,en;q=0.8,ja;q=0.7,pt;q=0.6"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "Content-Length",
+										"value": "147"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Host",
+										"value": "localhost:8000"
+									},
+									{
+										"key": "Origin",
+										"value": "http://localhost:3000"
+									},
+									{
+										"key": "Referer",
+										"value": "http://localhost:3000/"
+									},
+									{
+										"key": "Sec-Fetch-Dest",
+										"value": "empty"
+									},
+									{
+										"key": "Sec-Fetch-Mode",
+										"value": "cors"
+									},
+									{
+										"key": "Sec-Fetch-Site",
+										"value": "same-site"
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"Windows\""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"username\": \"ivanivan\",\n \"email\": \"sambrana@gmail.com\",\n \"password\": \"12341234\",\n \"password_confirm\": \"12341234\",\n \"first_name\": \"ivan\",\n \"last_name\": \"sambrana\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL1}}/api/users/register/",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Content-Length",
+									"value": "673"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 22:30:43 GMT"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie, origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "http://localhost:3000"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTcyOTA0MywiaWF0IjoxNzU1NjQyNjQzLCJqdGkiOiI5YjRhMGUwMTIwMzQ0ZmM4YWQ4ZjBiZGMwYmU1NTEwMyIsInVzZXJfaWQiOjM2fQ.2n_H4sOpwDvzyA3teBbUuksGy3TK05lFyz91XAXRoeQ\",\n \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NjQ2MjQzLCJpYXQiOjE3NTU2NDI2NDMsImp0aSI6Ijk0ZDUzNTM0MzgzOTRlMjI4MTVjYWNhNDBhNDQ5Mzk3IiwidXNlcl9pZCI6MzZ9.MyNtsqYqxL2iRxz2GL5zoLfsb_iOY34zhlWZQuO6Vuk\",\n \"user\": {\n  \"id\": 36,\n  \"username\": \"ivanivan\",\n  \"email\": \"sambrana@gmail.com\",\n  \"first_name\": \"ivan\",\n  \"last_name\": \"sambrana\",\n  \"profile\": {\n   \"phone\": \"\",\n   \"address\": \"\",\n   \"city\": \"\",\n   \"postal_code\": \"\",\n   \"country\": \"\"\n  }\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "Borrar Usuario Creado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(204);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is empty\", function () {\r",
+									"    pm.expect(pm.response.text()).to.be.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/{{userId}}/",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Borrar Usuario Creado",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/api/users/{{userId}}/",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"{{userId}}",
+										""
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 22:57:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Borrar Usuario Error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(401);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is below 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/{{userId}}/",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Borrar Usuario Error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/api/users/{{userId}}/",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"{{userId}}",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Aug 2025 22:55:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer realm=\"api\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"User not found\",\n    \"code\": \"user_not_found\"\n}"
+						}
+					]
+				}
+			],
+			"description": "localhost:3000/register",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "access",
+			"value": ""
+		},
+		{
+			"key": "userId",
+			"value": ""
+		},
+		{
+			"key": "username",
+			"value": ""
+		},
+		{
+			"key": "mail",
+			"value": ""
+		},
+		{
+			"key": "pass",
+			"value": ""
+		},
+		{
+			"key": "pass2",
+			"value": ""
+		},
+		{
+			"key": "nombre",
+			"value": ""
+		},
+		{
+			"key": "apellido",
+			"value": ""
+		}
+	]
+}

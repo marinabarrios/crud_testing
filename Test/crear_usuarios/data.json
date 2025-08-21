@@ -1,0 +1,82 @@
+[
+    {
+        "username": "pedro01",
+        "email": "pedro1@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Pedro",
+        "last_name": "Martinez"
+    },
+    {
+        "username": "miguel02",
+        "email": "miguel2@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Miguel",
+        "last_name": "Torres"
+    },
+    {
+        "username": "sofia03",
+        "email": "sofia3@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Sofia",
+        "last_name": "Rodriguez"
+    },
+    {
+        "username": "jorge04",
+        "email": "jorge4@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Jorge",
+        "last_name": "Garcia"
+    },
+    {
+        "username": "jorge05",
+        "email": "jorge5@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Jorge",
+        "last_name": "Torres"
+    },
+    {
+        "username": "miguel06",
+        "email": "miguel6@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Miguel",
+        "last_name": "Lopez"
+    },
+    {
+        "username": "ana07",
+        "email": "ana7@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Ana",
+        "last_name": "Torres"
+    },
+    {
+        "username": "maria08",
+        "email": "maria8@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Maria",
+        "last_name": "Rodriguez"
+    },
+    {
+        "username": "pedro09",
+        "email": "pedro9@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Pedro",
+        "last_name": "Sambrana"
+    },
+    {
+        "username": "maria10",
+        "email": "maria10@gmail.com",
+        "password": "123456",
+        "password_confirm": "123456",
+        "first_name": "Maria",
+        "last_name": "Fernandez"
+    }
+]
