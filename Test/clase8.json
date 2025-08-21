@@ -115,9 +115,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL2}}/api/users/login/",
+							"raw": "{{BaseUrl}}/api/users/login/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -341,9 +341,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/products/",
+							"raw": "{{BaseUrl}}/api/products/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -548,9 +548,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"raw": "{{BaseUrl}}/api/cart/my_cart/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -757,9 +757,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/products/",
+							"raw": "{{BaseUrl}}/api/products/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -964,9 +964,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"raw": "{{BaseUrl}}/api/cart/my_cart/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -1191,9 +1191,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/add_item/",
+							"raw": "{{BaseUrl}}/api/cart/add_item/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -1417,9 +1417,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"raw": "{{BaseUrl}}/api/cart/my_cart/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -1644,9 +1644,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/add_item/",
+							"raw": "{{BaseUrl}}/api/cart/add_item/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -1870,9 +1870,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"raw": "{{BaseUrl}}/api/cart/my_cart/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -2097,9 +2097,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/add_item/",
+							"raw": "{{BaseUrl}}/api/cart/add_item/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -2323,9 +2323,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"raw": "{{BaseUrl}}/api/cart/my_cart/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -3171,9 +3171,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/my_cart/",
+							"raw": "{{BaseUrl}}/api/cart/my_cart/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -3414,9 +3414,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL2}}/api/cart/checkout/",
+							"raw": "{{BaseUrl}}/api/cart/checkout/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -4060,9 +4060,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/orders/",
+							"raw": "{{BaseUrl}}/api/orders/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -4267,9 +4267,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseURL2}}/api/orders/",
+							"raw": "{{BaseUrl}}/api/orders/",
 							"host": [
-								"{{baseURL2}}"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
