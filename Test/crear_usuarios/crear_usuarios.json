@@ -78,6 +78,16 @@
 								"type": "text/javascript",
 								"packages": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"pass\", Math.floor(Math.random() * 1000000).toString());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
 					"request": {
@@ -154,7 +164,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n \"username\": \"{{username}}\",\n \"email\": \"{{mail}}\",\n \"password\": \"{{pass}}\",\n \"password_confirm\": \"{{pass2}}\",\n \"first_name\": \"{{nombre}}\",\n \"last_name\": \"{{apellido}}\"\n}",
+							"raw": "{\n \"username\": \"{{username}}\",\n \"email\": \"{{mail}}\",\n \"password\": \"{{pass}}\",\n \"password_confirm\": \"{{pass}}\",\n \"first_name\": \"{{nombre}}\",\n \"last_name\": \"{{apellido}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -432,7 +442,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n \"username\": \"ivanivan3\",\n \"email\": \"sambrana@gmail.com\",\n \"password\": \"12341234\",\n \"password_confirm\": \"12341234\",\n \"first_name\": \"ivan\",\n \"last_name\": \"sambrana\"\n}",
+							"raw": "{\n \"username\": \"{{username}}\",\n \"email\": \"{{mail}}\",\n \"password\": \"{{pass}}\",\n \"password_confirm\": \"{{pass}}\",\n \"first_name\": \"{{nombre}}\",\n \"last_name\": \"{{apellido}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"

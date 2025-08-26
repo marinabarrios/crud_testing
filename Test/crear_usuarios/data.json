@@ -1,82 +1,82 @@
 [
     {
         "username": "pedro01",
-        "email": "pedro1@gmail.com",
+        "mail": "pedro1@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Pedro",
-        "last_name": "Martinez"
+        "nombre": "Pedro",
+        "apellido": "Martinez"
     },
     {
         "username": "miguel02",
-        "email": "miguel2@gmail.com",
+        "mail": "miguel2@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Miguel",
-        "last_name": "Torres"
+        "nombre": "Miguel",
+        "apellido": "Torres"
     },
     {
         "username": "sofia03",
-        "email": "sofia3@gmail.com",
+        "mail": "sofia3@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Sofia",
-        "last_name": "Rodriguez"
+        "nombre": "Sofia",
+        "apellido": "Rodriguez"
     },
     {
         "username": "jorge04",
-        "email": "jorge4@gmail.com",
+        "mail": "jorge4@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Jorge",
-        "last_name": "Garcia"
+        "nombre": "Jorge",
+        "apellido": "Garcia"
     },
     {
         "username": "jorge05",
-        "email": "jorge5@gmail.com",
+        "mail": "jorge5@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Jorge",
-        "last_name": "Torres"
+        "nombre": "Jorge",
+        "apellido": "Torres"
     },
     {
         "username": "miguel06",
-        "email": "miguel6@gmail.com",
+        "mail": "miguel6@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Miguel",
-        "last_name": "Lopez"
+        "nombre": "Miguel",
+        "apellido": "Lopez"
     },
     {
         "username": "ana07",
-        "email": "ana7@gmail.com",
+        "mail": "ana7@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Ana",
-        "last_name": "Torres"
+        "nombre": "Ana",
+        "apellido": "Torres"
     },
     {
         "username": "maria08",
-        "email": "maria8@gmail.com",
+        "mail": "maria8@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Maria",
-        "last_name": "Rodriguez"
+        "nombre": "Maria",
+        "apellido": "Rodriguez"
     },
     {
         "username": "pedro09",
-        "email": "pedro9@gmail.com",
+        "mail": "pedro9@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Pedro",
-        "last_name": "Sambrana"
+        "nombre": "Pedro",
+        "apellido": "Sambrana"
     },
     {
         "username": "maria10",
-        "email": "maria10@gmail.com",
+        "mail": "maria10@gmail.com",
         "password": "123456",
         "password_confirm": "123456",
-        "first_name": "Maria",
-        "last_name": "Fernandez"
+        "nombre": "Maria",
+        "apellido": "Fernandez"
     }
 ]
