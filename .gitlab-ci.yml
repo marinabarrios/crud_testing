@@ -2,7 +2,7 @@ stages:
   - test_and_report
 
 variables:
-  ALLURE_SERVER: 'http://localhost:5050/api/allure'
+  ALLURE_SERVER: 'http://host.docker.internal:5050/api/allure'
   ALLURE_PROJECT_NAME: 'demo'
   POSTMAN_COLLECTION: 'Test/crear_usuarios/crear_usuarios.json'
   POSTMAN_DATA: 'Test/crear_usuarios/data.json'
