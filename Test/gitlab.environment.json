@@ -1,10 +1,10 @@
 {
 	"id": "13619909-b8e4-401f-ab3a-b04b12cb7daa",
-	"name": "laboratorio",
+	"name": "gitlab",
 	"values": [
 		{
 			"key": "BaseUrl",
-			"value": "http://host.docker.internal:8000",
+			"value": "https://adcd3aece254.ngrok-free.app",
 			"type": "default",
 			"description": "",
 			"enabled": true

@@ -5,6 +5,7 @@ cd Test
 cd crear_usuarios
 
 newman run crear_usuarios.json -d data.json -e ..\localhost.environment.json
+newman run crear_usuarios.json -d data.json -e ..\gitlab.environment.json
 
 
 
