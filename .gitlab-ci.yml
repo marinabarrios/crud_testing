@@ -1,0 +1,54 @@
+stages:
+  - test_and_report
+
+variables:
+  ALLURE_SERVER: 'http://localhost:5050/api/allure'
+  ALLURE_PROJECT_NAME: 'demo'
+  POSTMAN_COLLECTION: 'crear_usuarios.json'
+  POSTMAN_DATA: 'data.json'
+  POSTMAN_ENVIRONMENT: '../localhost.environment.json'
+
+test_and_report:
+  stage: test_and_report
+  image: node:18-alpine
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'  # Se ejecuta en cada push/commit
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'  # También en merge requests
+  before_script:
+    # Instalar dependencias necesarias
+    - apk --no-cache add curl
+    - npm install -g newman newman-reporter-allure
+  script:
+    - echo "Ejecutando tests con Newman y generando reportes Allure..."
+    
+    # Ejecutar tests con Newman
+    - newman run $POSTMAN_COLLECTION -d $POSTMAN_DATA -e $POSTMAN_ENVIRONMENT --reporters cli,allure --reporter-allure-export ./allure-results
+    
+    # Verificar que se generaron resultados
+    - |
+      if [ ! -d allure-results ] || [ -z "$(ls -A allure-results/)" ]; then
+        echo "No se encontraron resultados en allure-results/"
+        exit 1
+      fi
+    
+    # Enviar resultados a Allure Server
+    - echo "Enviando resultados a Allure Server..."
+    - |
+      curl -X POST "$ALLURE_SERVER/send-results?project_id=$ALLURE_PROJECT_NAME&force_project_creation=true" \
+        $(find allure-results -type f -exec echo -n "-F files[]=@{} " \;)
+    
+    # Generar reporte en Allure Server
+    - echo "Generando reporte en Allure Server..."
+    - curl -X GET "$ALLURE_SERVER/generate-report?project_id=$ALLURE_PROJECT_NAME"
+    
+    - echo "✅ Tests completados y reporte generado en Allure Server"
+    - echo "📊 Reporte disponible en: http://localhost:5050/allure-docker-service-ui/projects/$ALLURE_PROJECT_NAME/reports/latest"
+
+  artifacts:
+    paths:
+      - allure-results/
+    when: always
+    expire_in: 1 week
+  
+  # Permitir que el job falle sin afectar el pipeline si es necesario
+  # allow_failure: true
