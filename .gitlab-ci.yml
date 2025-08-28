@@ -5,7 +5,7 @@ variables:
   ALLURE_SERVER: 'http://localhost:5050/api/allure'
   ALLURE_PROJECT_NAME: 'demo'
   POSTMAN_COLLECTION: 'Test/crear_usuarios/crear_usuarios.json'
-  POSTMAN_DATA: 'Test/crear_usuarios/cdata.json'
+  POSTMAN_DATA: 'Test/crear_usuarios/data.json'
   POSTMAN_ENVIRONMENT: Test/localhost.environment.json'
 
 test_and_report:
@@ -20,7 +20,7 @@ test_and_report:
     - npm install -g newman newman-reporter-allure
   script:
     - echo "Ejecutando tests con Newman y generando reportes Allure..."
-    - newman run $POSTMAN_COLLECTION -d $POSTMAN_DATA -e $POSTMAN_ENVIRONMENT --reporters cli,allure --reporter-allure-export ./allure-results
+    - newman run Test/crear_usuarios/crear_usuarios.json -d Test/crear_usuarios/data.json -e $POSTMAN_ENVIRONMENT --reporters cli,allure --reporter-allure-export ./allure-results
     - if [ ! -d allure-results ] || [ -z "$(ls -A allure-results/)" ]; then echo "No se encontraron resultados en allure-results/" && exit 1; fi
     - echo "Enviando resultados a Allure Server..."
     - curl -X POST "$ALLURE_SERVER/send-results?project_id=$ALLURE_PROJECT_NAME&force_project_creation=true" $(find allure-results -type f -exec echo -n "-F files[]=@{} " \;)
