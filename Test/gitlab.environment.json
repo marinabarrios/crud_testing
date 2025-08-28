@@ -4,7 +4,7 @@
 	"values": [
 		{
 			"key": "BaseUrl",
-			"value": "http://172.29.192.1:8000",
+			"value": "http://host.docker.internal:8000",
 			"type": "default",
 			"description": "",
 			"enabled": true
