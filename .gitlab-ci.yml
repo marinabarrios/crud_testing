@@ -4,9 +4,9 @@ stages:
 variables:
   ALLURE_SERVER: 'http://localhost:5050/api/allure'
   ALLURE_PROJECT_NAME: 'demo'
-  POSTMAN_COLLECTION: 'crear_usuarios.json'
-  POSTMAN_DATA: 'data.json'
-  POSTMAN_ENVIRONMENT: '../localhost.environment.json'
+  POSTMAN_COLLECTION: 'Test/crear_usuarios/crear_usuarios.json'
+  POSTMAN_DATA: 'Test/crear_usuarios/cdata.json'
+  POSTMAN_ENVIRONMENT: Test/localhost.environment.json'
 
 test_and_report:
   stage: test_and_report
