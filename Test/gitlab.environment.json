@@ -1,0 +1,16 @@
+{
+	"id": "13619909-b8e4-401f-ab3a-b04b12cb7daa",
+	"name": "laboratorio",
+	"values": [
+		{
+			"key": "BaseUrl",
+			"value": "http://172.29.192.1:8000",
+			"type": "default",
+			"description": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-08-21T22:50:42.803Z",
+	"_postman_exported_using": "Postman/11.59.4"
+}
