@@ -2,7 +2,7 @@ name: CI Testing con Newman y Allure
 
 on:
   push:
-    branches: [ "main" ]   # cada push a main
+    branches: [ "main" ]   # cada vez que hagas push a main
   pull_request:
     branches: [ "main" ]   # cada PR a main
 
@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ALLURE_SERVER: "http://localhost:5050/api/allure"
-      ALLURE_PROJECT_NAME: "demo"
       POSTMAN_COLLECTION: "Test/crear_usuarios/crear_usuarios.json"
       POSTMAN_DATA: "Test/crear_usuarios/data.json"
       POSTMAN_ENVIRONMENT: "Test/gitlab.environment.json"
@@ -28,23 +26,28 @@ jobs:
 
       - name: Instalar dependencias necesarias
         run: |
-          sudo apt-get update && sudo apt-get install -y curl
-          npm install -g newman newman-reporter-allure
+          sudo apt-get update && sudo apt-get install -y curl unzip
+          npm install -g newman newman-reporter-allure allure-commandline --save-dev
 
       - name: Ejecutar tests con Newman
         run: |
           echo "Ejecutando tests con Newman y generando reportes Allure..."
           newman run $POSTMAN_COLLECTION -d $POSTMAN_DATA -e $POSTMAN_ENVIRONMENT --reporters cli,allure --reporter-allure-export ./allure-results
-          if [ ! -d allure-results ] || [ -z "$(ls -A allure-results/)" ]; then echo "No se encontraron resultados en allure-results/" && exit 1; fi
+          if [ ! -d allure-results ] || [ -z "$(ls -A allure-results/)" ]; then echo "❌ No se encontraron resultados en allure-results/" && exit 1; fi
 
-      - name: Enviar resultados a Allure Server
+      - name: Generar reporte HTML de Allure
         run: |
-          echo "Enviando resultados a Allure Server..."
-          curl -X POST "$ALLURE_SERVER/send-results?project_id=$ALLURE_PROJECT_NAME&force_project_creation=true" $(find allure-results -type f -exec echo -n "-F files[]=@{} " \;)
+          echo "Generando reporte HTML de Allure..."
+          allure generate allure-results --clean -o allure-report
 
-      - name: Generar reporte en Allure Server
-        run: |
-          echo "Generando reporte en Allure Server..."
-          curl -X GET "$ALLURE_SERVER/generate-report?project_id=$ALLURE_PROJECT_NAME"
-          echo "Tests completados y reporte generado en Allure Server"
-          echo "Reporte disponible en http://localhost:5050/allure-docker-service-ui/projects/$ALLURE_PROJECT_NAME/reports/latest"
+      - name: Subir resultados de Allure como artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results
+          path: allure-results/
+
+      - name: Subir reporte HTML como artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report
+          path: allure-report/
