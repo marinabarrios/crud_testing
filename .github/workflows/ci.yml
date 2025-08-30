@@ -1,0 +1,50 @@
+name: CI Testing con Newman y Allure
+
+on:
+  push:
+    branches: [ "main" ]   # cada push a main
+  pull_request:
+    branches: [ "main" ]   # cada PR a main
+
+jobs:
+  test_and_report:
+    runs-on: ubuntu-latest
+
+    env:
+      ALLURE_SERVER: "http://localhost:5050/api/allure"
+      ALLURE_PROJECT_NAME: "demo"
+      POSTMAN_COLLECTION: "Test/crear_usuarios/crear_usuarios.json"
+      POSTMAN_DATA: "Test/crear_usuarios/data.json"
+      POSTMAN_ENVIRONMENT: "Test/gitlab.environment.json"
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Instalar dependencias necesarias
+        run: |
+          sudo apt-get update && sudo apt-get install -y curl
+          npm install -g newman newman-reporter-allure
+
+      - name: Ejecutar tests con Newman
+        run: |
+          echo "Ejecutando tests con Newman y generando reportes Allure..."
+          newman run $POSTMAN_COLLECTION -d $POSTMAN_DATA -e $POSTMAN_ENVIRONMENT --reporters cli,allure --reporter-allure-export ./allure-results
+          if [ ! -d allure-results ] || [ -z "$(ls -A allure-results/)" ]; then echo "No se encontraron resultados en allure-results/" && exit 1; fi
+
+      - name: Enviar resultados a Allure Server
+        run: |
+          echo "Enviando resultados a Allure Server..."
+          curl -X POST "$ALLURE_SERVER/send-results?project_id=$ALLURE_PROJECT_NAME&force_project_creation=true" $(find allure-results -type f -exec echo -n "-F files[]=@{} " \;)
+
+      - name: Generar reporte en Allure Server
+        run: |
+          echo "Generando reporte en Allure Server..."
+          curl -X GET "$ALLURE_SERVER/generate-report?project_id=$ALLURE_PROJECT_NAME"
+          echo "Tests completados y reporte generado en Allure Server"
+          echo "Reporte disponible en http://localhost:5050/allure-docker-service-ui/projects/$ALLURE_PROJECT_NAME/reports/latest"
