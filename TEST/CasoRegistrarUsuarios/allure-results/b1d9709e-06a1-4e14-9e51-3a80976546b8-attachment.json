@@ -1,0 +1,13 @@
+{
+    "Date": "Sun, 31 Aug 2025 01:29:09 GMT",
+    "Server": "WSGIServer/0.2 CPython/3.13.7",
+    "Content-Type": "application/json",
+    "WWW-Authenticate": "Bearer realm=\"api\"",
+    "Vary": "Accept, origin",
+    "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+    "X-Frame-Options": "DENY",
+    "Content-Length": "51",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "same-origin",
+    "Cross-Origin-Opener-Policy": "same-origin"
+}

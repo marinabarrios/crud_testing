@@ -1,8 +1,0 @@
-{
- "username": "matias",
- "email": "matias@gmail.com",
- "password": "matiasmatias",
- "password_confirm": "matiasmatias",
- "first_name": "matias",
- "last_name": "Aguirre"
-}
