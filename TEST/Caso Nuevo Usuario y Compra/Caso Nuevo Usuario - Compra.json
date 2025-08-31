@@ -1,0 +1,2791 @@
+{
+	"info": {
+		"_postman_id": "863cc930-5df0-4444-a85f-5532a0bfcdc4",
+		"name": "Caso Nuevo Usuario - Compra",
+		"description": "HAR To Postman Generated Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39092952"
+	},
+	"item": [
+		{
+			"name": "Crear Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"// Save access variable to collection if it exists\r",
+							"if (response.user && response.user.id) {\r",
+							"    pm.collectionVariables.set(\"userId\", response.user.id);\r",
+							"}\r",
+							"\r",
+							"\r",
+							"// Save access variable to collection if it exists\r",
+							"if (response.user && response.user.username) {\r",
+							"    pm.collectionVariables.set(\"username\", response.user.username);\r",
+							"    pm.collectionVariables.set(\"password\", \"josejose\");\r",
+							"}\r",
+							"\r",
+							"// Save access variable to collection if it exists\r",
+							"if (response.access) {\r",
+							"    pm.collectionVariables.set(\"access\", response.access);\r",
+							"}\r",
+							"\r",
+							"// --- Status code ---\r",
+							"pm.test(\"Status code is 200, 201 o 204\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"User has required fields\", function () {\r",
+							"    const user = response.user;\r",
+							"    pm.expect(user).to.have.property(\"id\");\r",
+							"    pm.expect(user.id).to.be.a(\"number\");\r",
+							"\r",
+							"    pm.expect(user).to.have.property(\"username\").that.is.a(\"string\");\r",
+							"    pm.expect(user).to.have.property(\"email\").that.is.a(\"string\");\r",
+							"    pm.expect(user).to.have.property(\"first_name\").that.is.a(\"string\");\r",
+							"    pm.expect(user).to.have.property(\"last_name\").that.is.a(\"string\");\r",
+							"    pm.expect(user).to.have.property(\"profile\").that.is.an(\"object\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Length",
+						"value": "145",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"username\": \"jose\",\n \"email\": \"jose@gmail.com\",\n \"password\": \"josejose\",\n \"password_confirm\": \"josejose\",\n \"first_name\": \"Jose\",\n \"last_name\": \"Aguirre\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL2}}/api/users/register/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "created / 201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "145"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?1"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Android\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"username\": \"dario\",\n \"email\": \"dario@gmail.com\",\n \"password\": \"dariodario\",\n \"password_confirm\": \"dariodario\",\n \"first_name\": \"Dario\",\n \"last_name\": \"Aguirre\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/users/register/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "667"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 00:39:00 GMT"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie, origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "http://localhost:3000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTk5NTk0MCwiaWF0IjoxNzU1OTA5NTQwLCJqdGkiOiIwNTU4NDk5Y2VjOGM0Yjg1OTVjZWQ3MjA1YzQ1ODljYiIsInVzZXJfaWQiOjExfQ.oOcg9FIJk8lOnGQ2-hz_GG9fs7c5pXfazR0QZmNKqJM\",\n \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1OTEzMTQwLCJpYXQiOjE3NTU5MDk1NDAsImp0aSI6ImVmOWYzYTgxYmU2OTQyYzRhNDRlOWY3NjI3MTZkOThkIiwidXNlcl9pZCI6MTF9.B-zb-Ohx72zVRybfVp9O9fz_Xe5UTMQKtba5HoBwLfI\",\n \"user\": {\n  \"id\": 11,\n  \"username\": \"dario\",\n  \"email\": \"dario@gmail.com\",\n  \"first_name\": \"Dario\",\n  \"last_name\": \"Aguirre\",\n  \"profile\": {\n   \"phone\": \"\",\n   \"address\": \"\",\n   \"city\": \"\",\n   \"postal_code\": \"\",\n   \"country\": \"\"\n  }\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Loguearse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"El login responde 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Access token presente\", function () {\r",
+							"    pm.expect(response).to.have.property(\"access\");\r",
+							"    pm.expect(response.access).to.be.a(\"string\").that.is.not.empty;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Length",
+						"value": "41",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL2}}/api/users/login/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "41"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?1"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Android\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"username\": \"marina\",\n \"password\": \"marina\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/users/login/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "663"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 13:20:57 GMT"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie, origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "http://localhost:3000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NjA0MTY1NywiaWF0IjoxNzU1OTU1MjU3LCJqdGkiOiIzZTY3MjMyMjMzNDU0NmQ5ODAzZTE0NGRiZGU2NWUzOCIsInVzZXJfaWQiOjEwfQ.b9fCSoQtDJJo5bGP51mnCcJwThmfsWFp-3b26PQUh5s\",\n \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1OTU4ODU3LCJpYXQiOjE3NTU5NTUyNTcsImp0aSI6ImM3MDhlMTM3YTM1MTQ0NTZhYzBiYjZhMzEzZGYzYTY0IiwidXNlcl9pZCI6MTB9.YuTL-90XRE_WMmMNuhXkeI0gFSeUHhXNDGlby_vpAe8\",\n \"user\": {\n  \"id\": 10,\n  \"username\": \"marina\",\n  \"email\": \"marinapaolab@gmail.com\",\n  \"first_name\": \"\",\n  \"last_name\": \"\",\n  \"profile\": {\n   \"phone\": \"\",\n   \"address\": \"\",\n   \"city\": \"\",\n   \"postal_code\": \"\",\n   \"country\": \"\"\n  }\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Usuario Existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"// Verificar que el status code sea 400 (Bad Request)\r",
+							"pm.test(\"Status code is 400 for existing username\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(400);\r",
+							"});\r",
+							"\r",
+							"// Verificar que contenga el mensaje correcto\r",
+							"pm.test(\"Error message says username already exists\", function () {\r",
+							"    pm.expect(response.username[0]).to.include(\"already exists\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Length",
+						"value": "145",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"username\": \"jose\",\n \"email\": \"jose@gmail.com\",\n \"password\": \"josejose\",\n \"password_confirm\": \"josejose\",\n \"first_name\": \"Jose\",\n \"last_name\": \"Aguirre\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL2}}/api/users/register/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "created / 201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "145"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?1"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Android\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"username\": \"dario\",\n \"email\": \"dario@gmail.com\",\n \"password\": \"dariodario\",\n \"password_confirm\": \"dariodario\",\n \"first_name\": \"Dario\",\n \"last_name\": \"Aguirre\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/users/register/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "667"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 00:39:00 GMT"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie, origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "http://localhost:3000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTk5NTk0MCwiaWF0IjoxNzU1OTA5NTQwLCJqdGkiOiIwNTU4NDk5Y2VjOGM0Yjg1OTVjZWQ3MjA1YzQ1ODljYiIsInVzZXJfaWQiOjExfQ.oOcg9FIJk8lOnGQ2-hz_GG9fs7c5pXfazR0QZmNKqJM\",\n \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1OTEzMTQwLCJpYXQiOjE3NTU5MDk1NDAsImp0aSI6ImVmOWYzYTgxYmU2OTQyYzRhNDRlOWY3NjI3MTZkOThkIiwidXNlcl9pZCI6MTF9.B-zb-Ohx72zVRybfVp9O9fz_Xe5UTMQKtba5HoBwLfI\",\n \"user\": {\n  \"id\": 11,\n  \"username\": \"dario\",\n  \"email\": \"dario@gmail.com\",\n  \"first_name\": \"Dario\",\n  \"last_name\": \"Aguirre\",\n  \"profile\": {\n   \"phone\": \"\",\n   \"address\": \"\",\n   \"city\": \"\",\n   \"postal_code\": \"\",\n   \"country\": \"\"\n  }\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is below 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL2}}/api/users/{{userId}}/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{userId}}",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL2}}/api/users/{{userId}}/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								""
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 03:02:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Loguin Usuario Eliminado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"El login responde 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Length",
+						"value": "41",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL2}}/api/users/login/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Loguin Usuario Eliminado",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "41",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?1"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Android\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/users/login/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 14:25:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie, origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Invalid credentials\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar Usuario Borrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"// Verificar que el status sea 404\r",
+							"pm.test(\"Status code is 401 for already deleted user\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(401);\r",
+							"});\r",
+							"\r",
+							"// Verificar que el mensaje de error exista\r",
+							"pm.test(\"Error message exists\", function () {\r",
+							"    pm.expect(response.detail).to.exist;\r",
+							"    pm.expect(response.detail).to.be.a(\"string\").that.includes(\"not found\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is below 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL2}}/api/users/{{userId}}/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{userId}}",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar Usuario Borrado",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL2}}/api/users/{{userId}}/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								""
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 14:25:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Bearer realm=\"api\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"User not found\",\n    \"code\": \"user_not_found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Loguin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"El login responde 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Access token presente\", function () {\r",
+							"    pm.expect(response).to.have.property(\"access\");\r",
+							"    pm.expect(response.access).to.be.a(\"string\").that.is.not.empty;\r",
+							"});\r",
+							"\r",
+							"// Guardo userId si existe\r",
+							"if (response.user && response.user.id) {\r",
+							"    pm.collectionVariables.set(\"userId\", response.user.id);\r",
+							"    console.log(\"UserId guardado:\", response.user.id);\r",
+							"}\r",
+							"\r",
+							"pm.test(\"El login devuelve un access token\", function () {\r",
+							"    pm.expect(response.access).to.exist;\r",
+							"    pm.expect(response.access).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"// Save access variable to collection if it exists\r",
+							"if (response.access) {\r",
+							"    pm.collectionVariables.set(\"access\", response.access);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Length",
+						"value": "41",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"marina\",\n  \"password\": \"marina\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL2}}/api/users/login/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "41"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?1"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Android\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"username\": \"marina\",\n \"password\": \"marina\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL2}}/api/users/login/",
+							"host": [
+								"{{baseURL2}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "663"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 13:20:57 GMT"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie, origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "http://localhost:3000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NjA0MTY1NywiaWF0IjoxNzU1OTU1MjU3LCJqdGkiOiIzZTY3MjMyMjMzNDU0NmQ5ODAzZTE0NGRiZGU2NWUzOCIsInVzZXJfaWQiOjEwfQ.b9fCSoQtDJJo5bGP51mnCcJwThmfsWFp-3b26PQUh5s\",\n \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1OTU4ODU3LCJpYXQiOjE3NTU5NTUyNTcsImp0aSI6ImM3MDhlMTM3YTM1MTQ0NTZhYzBiYjZhMzEzZGYzYTY0IiwidXNlcl9pZCI6MTB9.YuTL-90XRE_WMmMNuhXkeI0gFSeUHhXNDGlby_vpAe8\",\n \"user\": {\n  \"id\": 10,\n  \"username\": \"marina\",\n  \"email\": \"marinapaolab@gmail.com\",\n  \"first_name\": \"\",\n  \"last_name\": \"\",\n  \"profile\": {\n   \"phone\": \"\",\n   \"address\": \"\",\n   \"city\": \"\",\n   \"postal_code\": \"\",\n   \"country\": \"\"\n  }\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar Producto al Carrito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Total items is defined and greater than or equal to 1\", function () {    \r",
+							"    pm.expect(response.total_items).to.exist;\r",
+							"    pm.expect(response.total_items).to.be.at.least(1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is below 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Total price is defined and not null\", function () {\r",
+							"    pm.expect(response.total_price).to.exist;\r",
+							"    pm.expect(response.total_price).to.not.be.null;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Length",
+						"value": "29",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"product_id\": 3,\n \"quantity\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL2}}/api/cart/add_item/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"add_item",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "29"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?1"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Android\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"product_id\": 3,\n \"quantity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL1}}/api/cart/add_item/",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"add_item",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "653"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 23:51:58 GMT"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "http://localhost:3000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"id\": 6,\n \"user\": 10,\n \"items\": [\n  {\n   \"id\": 19,\n   \"product\": {\n    \"id\": 3,\n    \"name\": \"Audífonos Inalámbricos\",\n    \"description\": \"Audífonos premium con cancelación de ruido\",\n    \"price\": \"199.99\",\n    \"stock\": 97,\n    \"category\": {\n     \"id\": 1,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-21T21:51:10.440448Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-21T21:51:10.445522Z\",\n    \"updated_at\": \"2025-08-22T23:29:39.499136Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 1,\n   \"added_at\": \"2025-08-23T23:51:58.633593Z\",\n   \"total_price\": 199.99\n  }\n ],\n \"total_items\": 1,\n \"total_price\": 199.99,\n \"created_at\": \"2025-08-22T23:10:42.122148Z\",\n \"updated_at\": \"2025-08-22T23:10:42.122169Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Ver Carrito",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"// Test: Status code 200\r",
+							"pm.test(\"El endpoint responde con 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Test: La respuesta contiene el carrito\r",
+							"pm.test(\"La respuesta incluye el carrito\", function () {\r",
+							"    pm.expect(response).to.have.property(\"id\");\r",
+							"    pm.expect(response).to.have.property(\"user\");\r",
+							"    pm.expect(response).to.have.property(\"items\").that.is.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"// Test: Validar propiedades esenciales del carrito\r",
+							"pm.test(\"El carrito contiene campos esenciales\", function () {\r",
+							"    pm.expect(response).to.have.property(\"total_items\").that.is.a(\"number\");\r",
+							"    pm.expect(response).to.have.property(\"total_price\").that.is.a(\"number\");\r",
+							"    pm.expect(response).to.have.property(\"created_at\");\r",
+							"    pm.expect(response).to.have.property(\"updated_at\");\r",
+							"});\r",
+							"\r",
+							"// Test: Cada item tiene producto con campos esenciales\r",
+							"pm.test(\"Cada item contiene un producto válido\", function () {\r",
+							"    response.items.forEach(item => {\r",
+							"        pm.expect(item).to.have.property(\"id\");\r",
+							"        pm.expect(item).to.have.property(\"quantity\").that.is.a(\"number\");\r",
+							"        pm.expect(item).to.have.property(\"total_price\").that.is.a(\"number\");\r",
+							"        pm.expect(item).to.have.property(\"added_at\");\r",
+							"        pm.expect(item).to.have.property(\"product\").that.is.an(\"object\");\r",
+							"\r",
+							"        const product = item.product;\r",
+							"        pm.expect(product).to.have.property(\"id\");\r",
+							"        pm.expect(product).to.have.property(\"name\");\r",
+							"        pm.expect(product).to.have.property(\"price\");\r",
+							"        pm.expect(product).to.have.property(\"stock\").that.is.a(\"number\");\r",
+							"        pm.expect(product).to.have.property(\"category\").that.is.an(\"object\");\r",
+							"        pm.expect(product.category).to.have.property(\"id\");\r",
+							"        pm.expect(product.category).to.have.property(\"name\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"// Test: El total_price del carrito coincide con la suma de los items\r",
+							"pm.test(\"El total_price del carrito coincide con la suma de los items\", function () {\r",
+							"    const totalCalculated = response.items.reduce((sum, item) => {\r",
+							"        return sum + parseFloat(item.total_price);\r",
+							"    }, 0);\r",
+							"    pm.expect(parseFloat(response.total_price)).to.be.closeTo(totalCalculated, 0.01);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					}
+				],
+				"url": {
+					"raw": "{{baseURL2}}/api/cart/my_cart/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"my_cart",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?1"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Android\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/api/cart/my_cart/",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"my_cart",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "653"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 23:51:58 GMT"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "http://localhost:3000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"id\": 6,\n \"user\": 10,\n \"items\": [\n  {\n   \"id\": 19,\n   \"product\": {\n    \"id\": 3,\n    \"name\": \"Audífonos Inalámbricos\",\n    \"description\": \"Audífonos premium con cancelación de ruido\",\n    \"price\": \"199.99\",\n    \"stock\": 97,\n    \"category\": {\n     \"id\": 1,\n     \"name\": \"Electrónicos\",\n     \"description\": \"Dispositivos electrónicos y gadgets\",\n     \"created_at\": \"2025-08-21T21:51:10.440448Z\"\n    },\n    \"image\": null,\n    \"is_active\": true,\n    \"created_at\": \"2025-08-21T21:51:10.445522Z\",\n    \"updated_at\": \"2025-08-22T23:29:39.499136Z\",\n    \"is_available\": true\n   },\n   \"quantity\": 1,\n   \"added_at\": \"2025-08-23T23:51:58.633593Z\",\n   \"total_price\": 199.99\n  }\n ],\n \"total_items\": 1,\n \"total_price\": 199.99,\n \"created_at\": \"2025-08-22T23:10:42.122148Z\",\n \"updated_at\": \"2025-08-22T23:10:42.122169Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Pago Exitoso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"// Test: Status code 200\r",
+							"pm.test(\"El endpoint responde con 201 OK\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"// Test: La respuesta indica éxito\r",
+							"pm.test(\"El pago fue procesado exitosamente\", function () {\r",
+							"    pm.expect(response).to.have.property(\"success\", true);\r",
+							"    pm.expect(response).to.have.property(\"message\").that.includes(\"Pago procesado exitosamente\");\r",
+							"});\r",
+							"\r",
+							"// Test: La respuesta contiene la orden\r",
+							"pm.test(\"La respuesta incluye la orden\", function () {\r",
+							"    pm.expect(response).to.have.property(\"order\").that.is.an(\"object\");\r",
+							"});\r",
+							"\r",
+							"// Test: La orden tiene propiedades clave\r",
+							"pm.test(\"La orden contiene campos esenciales\", function () {\r",
+							"    const order = response.order;\r",
+							"    pm.expect(order).to.have.property(\"id\");\r",
+							"    pm.expect(order).to.have.property(\"user\");\r",
+							"    pm.expect(order).to.have.property(\"status\");\r",
+							"    pm.expect(order).to.have.property(\"total_amount\");\r",
+							"    pm.expect(order).to.have.property(\"shipping_address\");\r",
+							"    pm.expect(order).to.have.property(\"payment_method\");\r",
+							"    pm.expect(order).to.have.property(\"items\").that.is.an(\"array\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Length",
+						"value": "72",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"shipping_address\": \"mi dirección\",\n \"payment_method\": \"cash_on_delivery\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL2}}/api/cart/checkout/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"checkout",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "created / 201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Length",
+								"value": "72"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?1"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Android\""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"shipping_address\": \"mi dirección\",\n \"payment_method\": \"cash_on_delivery\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL1}}/api/cart/checkout/",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"cart",
+								"checkout",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "784"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 23:52:27 GMT"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "http://localhost:3000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"success\": true,\n \"message\": \"Pago procesado exitosamente. Su orden ha sido confirmada.\",\n \"order\": {\n  \"id\": 11,\n  \"user\": 10,\n  \"status\": \"processing\",\n  \"total_amount\": \"199.99\",\n  \"shipping_address\": \"mi dirección\",\n  \"payment_method\": \"cash_on_delivery\",\n  \"items\": [\n   {\n    \"id\": 30,\n    \"product\": {\n     \"id\": 3,\n     \"name\": \"Audífonos Inalámbricos\",\n     \"description\": \"Audífonos premium con cancelación de ruido\",\n     \"price\": \"199.99\",\n     \"stock\": 96,\n     \"category\": {\n      \"id\": 1,\n      \"name\": \"Electrónicos\",\n      \"description\": \"Dispositivos electrónicos y gadgets\",\n      \"created_at\": \"2025-08-21T21:51:10.440448Z\"\n     },\n     \"image\": null,\n     \"is_active\": true,\n     \"created_at\": \"2025-08-21T21:51:10.445522Z\",\n     \"updated_at\": \"2025-08-23T23:52:27.650024Z\",\n     \"is_available\": true\n    },\n    \"quantity\": 1,\n    \"price\": \"199.99\"\n   }\n  ],\n  \"created_at\": \"2025-08-23T23:52:27.626692Z\",\n  \"updated_at\": \"2025-08-23T23:52:27.626711Z\"\n }\n}"
+				}
+			]
+		},
+		{
+			"name": "Ver Ordenes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();\r",
+							"\r",
+							"//Test: Status code 200\r",
+							"pm.test(\"El endpoint responde con 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//Test: Tiene propiedades principales\r",
+							"pm.test(\"La respuesta contiene propiedades básicas\", function () {\r",
+							"    pm.expect(response).to.have.property(\"count\");\r",
+							"    pm.expect(response).to.have.property(\"next\");\r",
+							"    pm.expect(response).to.have.property(\"previous\");\r",
+							"    pm.expect(response).to.have.property(\"results\").that.is.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"// Test: Hay al menos una orden\r",
+							"pm.test(\"Existe al menos una orden en results\", function () {\r",
+							"    pm.expect(response.results.length).to.be.above(0);\r",
+							"});\r",
+							"\r",
+							"// Test: Cada orden tiene campos clave\r",
+							"pm.test(\"Cada orden contiene campos esenciales\", function () {\r",
+							"    response.results.forEach(order => {\r",
+							"        pm.expect(order).to.have.property(\"id\");\r",
+							"        pm.expect(order).to.have.property(\"user\");\r",
+							"        pm.expect(order).to.have.property(\"status\");\r",
+							"        pm.expect(order).to.have.property(\"total_amount\");\r",
+							"        pm.expect(order).to.have.property(\"shipping_address\");\r",
+							"        pm.expect(order).to.have.property(\"payment_method\");\r",
+							"        pm.expect(order).to.have.property(\"items\").that.is.an(\"array\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"// Test: Cada item tiene producto con campos básicos\r",
+							"pm.test(\"Los items tienen producto válido\", function () {\r",
+							"    response.results.forEach(order => {\r",
+							"        order.items.forEach(item => {\r",
+							"            pm.expect(item).to.have.property(\"id\");\r",
+							"            pm.expect(item).to.have.property(\"quantity\");\r",
+							"            pm.expect(item).to.have.property(\"price\");\r",
+							"            pm.expect(item).to.have.property(\"product\").that.is.an(\"object\");\r",
+							"\r",
+							"            const product = item.product;\r",
+							"            pm.expect(product).to.have.property(\"id\");\r",
+							"            pm.expect(product).to.have.property(\"name\");\r",
+							"            pm.expect(product).to.have.property(\"price\");\r",
+							"            pm.expect(product).to.have.property(\"category\");\r",
+							"        });\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br, zstd"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:3000"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:3000/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?1"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Android\""
+					}
+				],
+				"url": {
+					"raw": "{{baseURL2}}/api/orders/",
+					"host": [
+						"{{baseURL2}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "successfully / 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "es-AR,es-419;q=0.9,es;q=0.8,pt;q=0.7,en;q=0.6"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Host",
+								"value": "localhost:8000"
+							},
+							{
+								"key": "Origin",
+								"value": "http://localhost:3000"
+							},
+							{
+								"key": "Referer",
+								"value": "http://localhost:3000/"
+							},
+							{
+								"key": "Sec-Fetch-Dest",
+								"value": "empty"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors"
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-site"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?1"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Android\""
+							}
+						],
+						"url": {
+							"raw": "{{baseURL1}}/api/orders/",
+							"host": [
+								"{{baseURL1}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "15366"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 23 Aug 2025 23:52:35 GMT"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.7"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "http://localhost:3000"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"count\": 11,\n \"next\": \"http://localhost:8000/api/orders/?page=2\",\n \"previous\": null,\n \"results\": [\n  {\n   \"id\": 1,\n   \"user\": 1,\n   \"status\": \"delivered\",\n   \"total_amount\": \"239.96\",\n   \"shipping_address\": \"123 Main Street, Apt 4B, New York, 10001, USA\",\n   \"payment_method\": \"credit_card\",\n   \"items\": [\n    {\n     \"id\": 1,\n     \"product\": {\n      \"id\": 25,\n      \"name\": \"Auto a Control Remoto\",\n      \"description\": \"Auto de carreras rápido con control remoto\",\n      \"price\": \"79.99\",\n      \"stock\": 30,\n      \"category\": {\n       \"id\": 6,\n       \"name\": \"Juguetes\",\n       \"description\": \"Juguetes y juegos para todas las edades\",\n       \"created_at\": \"2025-08-21T21:51:10.443456Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.456292Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.456317Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"79.99\"\n    },\n    {\n     \"id\": 2,\n     \"product\": {\n      \"id\": 16,\n      \"name\": \"Set de Herramientas de Jardín\",\n      \"description\": \"Juego completo de herramientas para jardín\",\n      \"price\": \"59.99\",\n      \"stock\": 25,\n      \"category\": {\n       \"id\": 4,\n       \"name\": \"Hogar y Jardín\",\n       \"description\": \"Mejoras para el hogar y suministros de jardín\",\n       \"created_at\": \"2025-08-21T21:51:10.442905Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.452646Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.452663Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"59.99\"\n    },\n    {\n     \"id\": 3,\n     \"product\": {\n      \"id\": 26,\n      \"name\": \"Rompecabezas 1000 Piezas\",\n      \"description\": \"Desafiante rompecabezas de 1000 piezas\",\n      \"price\": \"19.99\",\n      \"stock\": 55,\n      \"category\": {\n       \"id\": 6,\n       \"name\": \"Juguetes\",\n       \"description\": \"Juguetes y juegos para todas las edades\",\n       \"created_at\": \"2025-08-21T21:51:10.443456Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.456685Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.456698Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"19.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-21T21:51:10.589136Z\",\n   \"updated_at\": \"2025-08-21T21:51:10.589167Z\"\n  },\n  {\n   \"id\": 2,\n   \"user\": 1,\n   \"status\": \"processing\",\n   \"total_amount\": \"1859.92\",\n   \"shipping_address\": \"123 Main Street, Apt 4B, New York, 10001, USA\",\n   \"payment_method\": \"credit_card\",\n   \"items\": [\n    {\n     \"id\": 4,\n     \"product\": {\n      \"id\": 15,\n      \"name\": \"Cafetera Automática\",\n      \"description\": \"Cafetera automática de goteo\",\n      \"price\": \"89.99\",\n      \"stock\": 40,\n      \"category\": {\n       \"id\": 4,\n       \"name\": \"Hogar y Jardín\",\n       \"description\": \"Mejoras para el hogar y suministros de jardín\",\n       \"created_at\": \"2025-08-21T21:51:10.442905Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.452171Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.452212Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"89.99\"\n    },\n    {\n     \"id\": 5,\n     \"product\": {\n      \"id\": 8,\n      \"name\": \"Chaqueta de Invierno\",\n      \"description\": \"Chaqueta abrigadora con capucha para invierno\",\n      \"price\": \"89.99\",\n      \"stock\": 80,\n      \"category\": {\n       \"id\": 2,\n       \"name\": \"Ropa\",\n       \"description\": \"Moda y vestimenta\",\n       \"created_at\": \"2025-08-21T21:51:10.442323Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.448004Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.448018Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"89.99\"\n    },\n    {\n     \"id\": 6,\n     \"product\": {\n      \"id\": 7,\n      \"name\": \"Jeans de Mezclilla\",\n      \"description\": \"Jeans clásicos de mezclilla azul\",\n      \"price\": \"49.99\",\n      \"stock\": 150,\n      \"category\": {\n       \"id\": 2,\n       \"name\": \"Ropa\",\n       \"description\": \"Moda y vestimenta\",\n       \"created_at\": \"2025-08-21T21:51:10.442323Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.447580Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.447599Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"49.99\"\n    },\n    {\n     \"id\": 7,\n     \"product\": {\n      \"id\": 1,\n      \"name\": \"Teléfono Inteligente X1\",\n      \"description\": \"Último modelo de smartphone con características avanzadas\",\n      \"price\": \"699.99\",\n      \"stock\": 50,\n      \"category\": {\n       \"id\": 1,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-21T21:51:10.440448Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.444140Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.444156Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"699.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-21T21:51:10.592072Z\",\n   \"updated_at\": \"2025-08-21T21:51:10.592107Z\"\n  },\n  {\n   \"id\": 3,\n   \"user\": 2,\n   \"status\": \"pending\",\n   \"total_amount\": \"2844.93\",\n   \"shipping_address\": \"456 Oak Avenue, Los Angeles, 90210, USA\",\n   \"payment_method\": \"credit_card\",\n   \"items\": [\n    {\n     \"id\": 8,\n     \"product\": {\n      \"id\": 17,\n      \"name\": \"Lámpara LED de Mesa\",\n      \"description\": \"Moderna lámpara LED para escritorio\",\n      \"price\": \"34.99\",\n      \"stock\": 65,\n      \"category\": {\n       \"id\": 4,\n       \"name\": \"Hogar y Jardín\",\n       \"description\": \"Mejoras para el hogar y suministros de jardín\",\n       \"created_at\": \"2025-08-21T21:51:10.442905Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.453073Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.453089Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"34.99\"\n    },\n    {\n     \"id\": 9,\n     \"product\": {\n      \"id\": 10,\n      \"name\": \"Vestido de Verano\",\n      \"description\": \"Elegante vestido para la temporada de verano\",\n      \"price\": \"59.99\",\n      \"stock\": 90,\n      \"category\": {\n       \"id\": 2,\n       \"name\": \"Ropa\",\n       \"description\": \"Moda y vestimenta\",\n       \"created_at\": \"2025-08-21T21:51:10.442323Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.448943Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.448969Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"59.99\"\n    },\n    {\n     \"id\": 10,\n     \"product\": {\n      \"id\": 2,\n      \"name\": \"Laptop Pro\",\n      \"description\": \"Portátil de alto rendimiento para profesionales\",\n      \"price\": \"1299.99\",\n      \"stock\": 25,\n      \"category\": {\n       \"id\": 1,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-21T21:51:10.440448Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.444915Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.444940Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"1299.99\"\n    },\n    {\n     \"id\": 11,\n     \"product\": {\n      \"id\": 19,\n      \"name\": \"Tapete de Yoga\",\n      \"description\": \"Tapete antideslizante para yoga\",\n      \"price\": \"29.99\",\n      \"stock\": 85,\n      \"category\": {\n       \"id\": 5,\n       \"name\": \"Deportes\",\n       \"description\": \"Equipamiento y artículos deportivos\",\n       \"created_at\": \"2025-08-21T21:51:10.443130Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.453940Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.453956Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"29.99\"\n    },\n    {\n     \"id\": 12,\n     \"product\": {\n      \"id\": 15,\n      \"name\": \"Cafetera Automática\",\n      \"description\": \"Cafetera automática de goteo\",\n      \"price\": \"89.99\",\n      \"stock\": 40,\n      \"category\": {\n       \"id\": 4,\n       \"name\": \"Hogar y Jardín\",\n       \"description\": \"Mejoras para el hogar y suministros de jardín\",\n       \"created_at\": \"2025-08-21T21:51:10.442905Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.452171Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.452212Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"89.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-21T21:51:10.595724Z\",\n   \"updated_at\": \"2025-08-21T21:51:10.595756Z\"\n  },\n  {\n   \"id\": 4,\n   \"user\": 3,\n   \"status\": \"processing\",\n   \"total_amount\": \"464.96\",\n   \"shipping_address\": \"789 Pine Road, Chicago, 60601, USA\",\n   \"payment_method\": \"credit_card\",\n   \"items\": [\n    {\n     \"id\": 13,\n     \"product\": {\n      \"id\": 12,\n      \"name\": \"Novela de Ciencia Ficción\",\n      \"description\": \"Aventura de ciencia ficción más vendida\",\n      \"price\": \"14.99\",\n      \"stock\": 80,\n      \"category\": {\n       \"id\": 3,\n       \"name\": \"Libros\",\n       \"description\": \"Libros y literatura\",\n       \"created_at\": \"2025-08-21T21:51:10.442601Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.450135Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.450166Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"14.99\"\n    },\n    {\n     \"id\": 14,\n     \"product\": {\n      \"id\": 7,\n      \"name\": \"Jeans de Mezclilla\",\n      \"description\": \"Jeans clásicos de mezclilla azul\",\n      \"price\": \"49.99\",\n      \"stock\": 150,\n      \"category\": {\n       \"id\": 2,\n       \"name\": \"Ropa\",\n       \"description\": \"Moda y vestimenta\",\n       \"created_at\": \"2025-08-21T21:51:10.442323Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.447580Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.447599Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"49.99\"\n    },\n    {\n     \"id\": 15,\n     \"product\": {\n      \"id\": 22,\n      \"name\": \"Set de Mancuernas\",\n      \"description\": \"Juego de mancuernas ajustables\",\n      \"price\": \"199.99\",\n      \"stock\": 15,\n      \"category\": {\n       \"id\": 5,\n       \"name\": \"Deportes\",\n       \"description\": \"Equipamiento y artículos deportivos\",\n       \"created_at\": \"2025-08-21T21:51:10.443130Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.455147Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.455160Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"199.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-21T21:51:10.600233Z\",\n   \"updated_at\": \"2025-08-21T21:51:10.600275Z\"\n  },\n  {\n   \"id\": 5,\n   \"user\": 3,\n   \"status\": \"processing\",\n   \"total_amount\": \"599.98\",\n   \"shipping_address\": \"789 Pine Road, Chicago, 60601, USA\",\n   \"payment_method\": \"credit_card\",\n   \"items\": [\n    {\n     \"id\": 16,\n     \"product\": {\n      \"id\": 4,\n      \"name\": \"Reloj Inteligente\",\n      \"description\": \"Smartwatch con seguimiento de actividad física\",\n      \"price\": \"299.99\",\n      \"stock\": 75,\n      \"category\": {\n       \"id\": 1,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-21T21:51:10.440448Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.446176Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.446203Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"299.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-21T21:51:10.602804Z\",\n   \"updated_at\": \"2025-08-21T21:51:10.602842Z\"\n  },\n  {\n   \"id\": 6,\n   \"user\": 4,\n   \"status\": \"pending\",\n   \"total_amount\": \"254.97\",\n   \"shipping_address\": \"321 Cedar Lane, Miami, 33101, USA\",\n   \"payment_method\": \"credit_card\",\n   \"items\": [\n    {\n     \"id\": 17,\n     \"product\": {\n      \"id\": 22,\n      \"name\": \"Set de Mancuernas\",\n      \"description\": \"Juego de mancuernas ajustables\",\n      \"price\": \"199.99\",\n      \"stock\": 15,\n      \"category\": {\n       \"id\": 5,\n       \"name\": \"Deportes\",\n       \"description\": \"Equipamiento y artículos deportivos\",\n       \"created_at\": \"2025-08-21T21:51:10.443130Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.455147Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.455160Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"199.99\"\n    },\n    {\n     \"id\": 18,\n     \"product\": {\n      \"id\": 24,\n      \"name\": \"Bloques de Construcción\",\n      \"description\": \"Set creativo de bloques de construcción\",\n      \"price\": \"39.99\",\n      \"stock\": 90,\n      \"category\": {\n       \"id\": 6,\n       \"name\": \"Juguetes\",\n       \"description\": \"Juguetes y juegos para todas las edades\",\n       \"created_at\": \"2025-08-21T21:51:10.443456Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.455948Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.455963Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"39.99\"\n    },\n    {\n     \"id\": 19,\n     \"product\": {\n      \"id\": 12,\n      \"name\": \"Novela de Ciencia Ficción\",\n      \"description\": \"Aventura de ciencia ficción más vendida\",\n      \"price\": \"14.99\",\n      \"stock\": 80,\n      \"category\": {\n       \"id\": 3,\n       \"name\": \"Libros\",\n       \"description\": \"Libros y literatura\",\n       \"created_at\": \"2025-08-21T21:51:10.442601Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.450135Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.450166Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"14.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-21T21:51:10.604927Z\",\n   \"updated_at\": \"2025-08-21T21:51:10.604948Z\"\n  },\n  {\n   \"id\": 7,\n   \"user\": 5,\n   \"status\": \"delivered\",\n   \"total_amount\": \"479.96\",\n   \"shipping_address\": \"654 Elm Street, Seattle, 98101, USA\",\n   \"payment_method\": \"credit_card\",\n   \"items\": [\n    {\n     \"id\": 20,\n     \"product\": {\n      \"id\": 3,\n      \"name\": \"Audífonos Inalámbricos\",\n      \"description\": \"Audífonos premium con cancelación de ruido\",\n      \"price\": \"199.99\",\n      \"stock\": 96,\n      \"category\": {\n       \"id\": 1,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-21T21:51:10.440448Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.445522Z\",\n      \"updated_at\": \"2025-08-23T23:52:27.650024Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"199.99\"\n    },\n    {\n     \"id\": 21,\n     \"product\": {\n      \"id\": 24,\n      \"name\": \"Bloques de Construcción\",\n      \"description\": \"Set creativo de bloques de construcción\",\n      \"price\": \"39.99\",\n      \"stock\": 90,\n      \"category\": {\n       \"id\": 6,\n       \"name\": \"Juguetes\",\n       \"description\": \"Juguetes y juegos para todas las edades\",\n       \"created_at\": \"2025-08-21T21:51:10.443456Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.455948Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.455963Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"39.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-21T21:51:10.607536Z\",\n   \"updated_at\": \"2025-08-21T21:51:10.607557Z\"\n  },\n  {\n   \"id\": 8,\n   \"user\": 6,\n   \"status\": \"delivered\",\n   \"total_amount\": \"79.97\",\n   \"shipping_address\": \"987 Maple Drive, Boston, 02101, USA\",\n   \"payment_method\": \"credit_card\",\n   \"items\": [\n    {\n     \"id\": 22,\n     \"product\": {\n      \"id\": 6,\n      \"name\": \"Camiseta de Algodón\",\n      \"description\": \"Camiseta cómoda 100% algodón\",\n      \"price\": \"19.99\",\n      \"stock\": 200,\n      \"category\": {\n       \"id\": 2,\n       \"name\": \"Ropa\",\n       \"description\": \"Moda y vestimenta\",\n       \"created_at\": \"2025-08-21T21:51:10.442323Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.447167Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.447182Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"19.99\"\n    },\n    {\n     \"id\": 23,\n     \"product\": {\n      \"id\": 24,\n      \"name\": \"Bloques de Construcción\",\n      \"description\": \"Set creativo de bloques de construcción\",\n      \"price\": \"39.99\",\n      \"stock\": 90,\n      \"category\": {\n       \"id\": 6,\n       \"name\": \"Juguetes\",\n       \"description\": \"Juguetes y juegos para todas las edades\",\n       \"created_at\": \"2025-08-21T21:51:10.443456Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.455948Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.455963Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"39.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-21T21:51:10.609946Z\",\n   \"updated_at\": \"2025-08-21T21:51:10.609965Z\"\n  },\n  {\n   \"id\": 9,\n   \"user\": 6,\n   \"status\": \"processing\",\n   \"total_amount\": \"829.94\",\n   \"shipping_address\": \"987 Maple Drive, Boston, 02101, USA\",\n   \"payment_method\": \"credit_card\",\n   \"items\": [\n    {\n     \"id\": 24,\n     \"product\": {\n      \"id\": 20,\n      \"name\": \"Raqueta de Tenis\",\n      \"description\": \"Raqueta profesional de tenis\",\n      \"price\": \"149.99\",\n      \"stock\": 20,\n      \"category\": {\n       \"id\": 5,\n       \"name\": \"Deportes\",\n       \"description\": \"Equipamiento y artículos deportivos\",\n       \"created_at\": \"2025-08-21T21:51:10.443130Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.454353Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.454367Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 2,\n     \"price\": \"149.99\"\n    },\n    {\n     \"id\": 25,\n     \"product\": {\n      \"id\": 3,\n      \"name\": \"Audífonos Inalámbricos\",\n      \"description\": \"Audífonos premium con cancelación de ruido\",\n      \"price\": \"199.99\",\n      \"stock\": 96,\n      \"category\": {\n       \"id\": 1,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-21T21:51:10.440448Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.445522Z\",\n      \"updated_at\": \"2025-08-23T23:52:27.650024Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"199.99\"\n    },\n    {\n     \"id\": 26,\n     \"product\": {\n      \"id\": 24,\n      \"name\": \"Bloques de Construcción\",\n      \"description\": \"Set creativo de bloques de construcción\",\n      \"price\": \"39.99\",\n      \"stock\": 90,\n      \"category\": {\n       \"id\": 6,\n       \"name\": \"Juguetes\",\n       \"description\": \"Juguetes y juegos para todas las edades\",\n       \"created_at\": \"2025-08-21T21:51:10.443456Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.455948Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.455963Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"39.99\"\n    },\n    {\n     \"id\": 27,\n     \"product\": {\n      \"id\": 15,\n      \"name\": \"Cafetera Automática\",\n      \"description\": \"Cafetera automática de goteo\",\n      \"price\": \"89.99\",\n      \"stock\": 40,\n      \"category\": {\n       \"id\": 4,\n       \"name\": \"Hogar y Jardín\",\n       \"description\": \"Mejoras para el hogar y suministros de jardín\",\n       \"created_at\": \"2025-08-21T21:51:10.442905Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.452171Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.452212Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"89.99\"\n    },\n    {\n     \"id\": 28,\n     \"product\": {\n      \"id\": 22,\n      \"name\": \"Set de Mancuernas\",\n      \"description\": \"Juego de mancuernas ajustables\",\n      \"price\": \"199.99\",\n      \"stock\": 15,\n      \"category\": {\n       \"id\": 5,\n       \"name\": \"Deportes\",\n       \"description\": \"Equipamiento y artículos deportivos\",\n       \"created_at\": \"2025-08-21T21:51:10.443130Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.455147Z\",\n      \"updated_at\": \"2025-08-21T21:51:10.455160Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 1,\n     \"price\": \"199.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-21T21:51:10.610950Z\",\n   \"updated_at\": \"2025-08-21T21:51:10.610968Z\"\n  },\n  {\n   \"id\": 10,\n   \"user\": 10,\n   \"status\": \"processing\",\n   \"total_amount\": \"599.97\",\n   \"shipping_address\": \"Dirección\",\n   \"payment_method\": \"cash_on_delivery\",\n   \"items\": [\n    {\n     \"id\": 29,\n     \"product\": {\n      \"id\": 3,\n      \"name\": \"Audífonos Inalámbricos\",\n      \"description\": \"Audífonos premium con cancelación de ruido\",\n      \"price\": \"199.99\",\n      \"stock\": 96,\n      \"category\": {\n       \"id\": 1,\n       \"name\": \"Electrónicos\",\n       \"description\": \"Dispositivos electrónicos y gadgets\",\n       \"created_at\": \"2025-08-21T21:51:10.440448Z\"\n      },\n      \"image\": null,\n      \"is_active\": true,\n      \"created_at\": \"2025-08-21T21:51:10.445522Z\",\n      \"updated_at\": \"2025-08-23T23:52:27.650024Z\",\n      \"is_available\": true\n     },\n     \"quantity\": 3,\n     \"price\": \"199.99\"\n    }\n   ],\n   \"created_at\": \"2025-08-22T23:29:39.470204Z\",\n   \"updated_at\": \"2025-08-22T23:29:39.470223Z\"\n  }\n ]\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "userId",
+			"value": "xx"
+		},
+		{
+			"key": "access",
+			"value": ""
+		},
+		{
+			"key": "username",
+			"value": "xx"
+		},
+		{
+			"key": "password",
+			"value": "xx"
+		}
+	]
+}

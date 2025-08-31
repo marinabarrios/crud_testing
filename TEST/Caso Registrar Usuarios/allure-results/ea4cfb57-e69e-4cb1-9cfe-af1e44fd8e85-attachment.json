@@ -1,0 +1,14 @@
+{
+    "Date": "Tue, 26 Aug 2025 23:15:31 GMT",
+    "Server": "WSGIServer/0.2 CPython/3.13.7",
+    "Content-Type": "application/json",
+    "Vary": "Accept, Cookie, origin",
+    "Allow": "POST, OPTIONS",
+    "X-Frame-Options": "DENY",
+    "Content-Length": "58",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "same-origin",
+    "Cross-Origin-Opener-Policy": "same-origin",
+    "access-control-allow-origin": "http://localhost:3000",
+    "access-control-allow-credentials": "true"
+}
