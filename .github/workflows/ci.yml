@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      POSTMAN_COLLECTION: "TEST/CasoRegistrarUsuarios/RegistrarUsuarios.json"
-      POSTMAN_DATA: "TEST/CasoRegistrarUsuarios/data.json"
-      POSTMAN_ENVIRONMENT: "TEST/localhost_environment.json"
+      POSTMAN_COLLECTION: "TEST/CasoRegistrarUsuariosEP/RegistrarUsuariosEP.json"
+      POSTMAN_DATA: "TEST/CasoRegistrarUsuariosEP/data.json"
+      POSTMAN_ENVIRONMENT: "TEST/PublicoPrueba_environment.json"
 
     steps:
       - name: Checkout código
