@@ -1,0 +1,10 @@
+{
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU2ODYyMjc3LCJpYXQiOjE3NTY4NTg2NzcsImp0aSI6IjNkYzdhMjFlZjViYTQwMWU5ZjdmNzM1NDc0YTZkNzBiIiwidXNlcl9pZCI6NzN9.ekBdk02NhhhiY35z51SkRI9m3sV21wWlfb5vhRkQFFM",
+    "User-Agent": "PostmanRuntime/7.39.1",
+    "Accept": "*/*",
+    "Cache-Control": "no-cache",
+    "Postman-Token": "5462443f-89cc-4d48-b15a-edae4ba2b030",
+    "Host": "5758c2a057bd.ngrok-free.app",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
+}

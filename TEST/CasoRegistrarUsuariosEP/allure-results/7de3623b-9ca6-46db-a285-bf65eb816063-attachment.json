@@ -1,0 +1,14 @@
+{
+    "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+    "Content-Length": "58",
+    "Content-Type": "application/json",
+    "Cross-Origin-Opener-Policy": "same-origin",
+    "Date": "Tue, 02 Sep 2025 23:51:55 GMT",
+    "Ngrok-Agent-Ips": "181.91.220.78",
+    "Referrer-Policy": "same-origin",
+    "Server": "WSGIServer/0.2 CPython/3.13.7",
+    "Vary": "Accept, Cookie, origin",
+    "Www-Authenticate": "Bearer realm=\"api\"",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY"
+}

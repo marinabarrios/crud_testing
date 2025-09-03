@@ -1,0 +1,16 @@
+{
+	"id": "d85e7d81-5e3d-4000-9cb3-62ecd57dd4a7",
+	"name": "Publico Prueba",
+	"values": [
+		{
+			"key": "baseURLB",
+			"value": "https://5758c2a057bd.ngrok-free.app",
+			"type": "default",
+			"description": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-09-02T23:41:25.248Z",
+	"_postman_exported_using": "Postman/11.61.4"
+}
