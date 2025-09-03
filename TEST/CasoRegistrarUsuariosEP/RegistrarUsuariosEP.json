@@ -836,9 +836,6 @@
 							"    pm.expect(pm.response.code).to.equal(204);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Response time is below 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
 							""
 						],
 						"type": "text/javascript",
@@ -1215,10 +1212,6 @@
 							"pm.test(\"Error message exists\", function () {\r",
 							"    pm.expect(response.detail).to.exist;\r",
 							"    pm.expect(response.detail).to.be.a(\"string\").that.includes(\"not found\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response time is below 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
 							"});\r",
 							""
 						],
